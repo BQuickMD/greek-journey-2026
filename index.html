@@ -1,4 +1,3 @@
-index
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
@@ -7,7 +6,6 @@ index
   <title>Quick Family Journey — May 2026</title>
   <meta name="description" content="Athens · Santorini · Paros · Berlin — a family journey through ancient history, island life, and vibrant city culture, May 2026." />
 
-  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Work+Sans:wght@300..700&display=swap" rel="stylesheet" />
@@ -15,7 +13,7 @@ index
   <style>
     /* ============================================================
        DESIGN TOKENS
-    ============================================================ */
+    =========================================================== */
     :root, [data-theme="light"] {
       /* Surfaces — Aegean White */
       --color-bg:             #f8f7f3;
@@ -133,7 +131,7 @@ index
 
     /* ============================================================
        BASE RESET
-    ============================================================ */
+    =========================================================== */
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     html {
@@ -186,7 +184,7 @@ index
 
     /* ============================================================
        LAYOUT UTILITIES
-    ============================================================ */
+    =========================================================== */
     .container {
       max-width: 860px;
       margin-inline: auto;
@@ -201,7 +199,7 @@ index
 
     /* ============================================================
        HEADER / HERO
-    ============================================================ */
+    =========================================================== */
     .site-header {
       position: relative;
       min-height: 62vh;
@@ -324,7 +322,7 @@ index
 
     /* ============================================================
        STICKY NAV
-    ============================================================ */
+    =========================================================== */
     .site-nav {
       position: sticky;
       top: 0;
@@ -372,7 +370,7 @@ index
 
     /* ============================================================
        TAB PANELS
-    ============================================================ */
+    =========================================================== */
     .tab-panels {
       padding-block: var(--space-12) var(--space-20);
     }
@@ -413,7 +411,7 @@ index
 
     /* ============================================================
        TIMELINE (Fixed Logistics)
-    ============================================================ */
+    =========================================================== */
     .timeline { position: relative; }
 
     .timeline-item {
@@ -539,7 +537,7 @@ index
 
     /* ============================================================
        EXPLORE (Choose Your Own Adventure)
-    ============================================================ */
+    =========================================================== */
     .explore-grid {
       display: grid;
       gap: var(--space-6);
@@ -658,7 +656,7 @@ index
 
     /* ============================================================
        DINING TAB
-    ============================================================ */
+    =========================================================== */
     .dining-location-group { margin-bottom: var(--space-10); }
 
     .dining-location-header {
@@ -776,7 +774,7 @@ index
 
     /* ============================================================
        HISTORY TAB
-    ============================================================ */
+    =========================================================== */
     .history-grid {
       display: grid;
       gap: var(--space-8);
@@ -876,7 +874,7 @@ index
 
     /* ============================================================
        CALLOUT / FAMILY NOTE
-    ============================================================ */
+    =========================================================== */
     .callout {
       background: var(--color-primary-subtle);
       border-left: 3px solid var(--color-primary);
@@ -895,7 +893,7 @@ index
 
     /* ============================================================
        FOOTER
-    ============================================================ */
+    =========================================================== */
     .site-footer {
       background: var(--color-surface);
       border-top: 1px solid var(--color-divider);
@@ -911,7 +909,7 @@ index
 
     /* ============================================================
        RESPONSIVE
-    ============================================================ */
+    =========================================================== */
     @media (max-width: 600px) {
       .timeline-item { grid-template-columns: 1fr; }
       .timeline-spine { display: none; }
@@ -925,30 +923,21 @@ index
 </head>
 <body>
 
-  <!-- ================================================================
-       HEADER
-  ================================================================ -->
   <header class="site-header">
     <button class="theme-toggle" data-theme-toggle aria-label="Toggle dark mode">
-      <!-- sun icon default -->
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
     </button>
 
     <div class="header-content">
-      <!-- SVG Logo Mark -->
       <div class="logo-mark">
         <svg width="52" height="52" viewBox="0 0 52 52" fill="none" aria-label="Journey logo mark">
-          <!-- Compass-like mark with Greek key accent -->
           <circle cx="26" cy="26" r="24" stroke="rgba(255,255,255,.35)" stroke-width="1"/>
           <circle cx="26" cy="26" r="17" stroke="rgba(255,255,255,.2)" stroke-width="1"/>
-          <!-- Cardinal directions -->
           <line x1="26" y1="2" x2="26" y2="12" stroke="rgba(255,255,255,.7)" stroke-width="1.5"/>
           <line x1="26" y1="40" x2="26" y2="50" stroke="rgba(255,255,255,.4)" stroke-width="1"/>
           <line x1="2" y1="26" x2="12" y2="26" stroke="rgba(255,255,255,.4)" stroke-width="1"/>
           <line x1="40" y1="26" x2="50" y2="26" stroke="rgba(255,255,255,.4)" stroke-width="1"/>
-          <!-- North arrow -->
           <polygon points="26,9 23,20 26,18 29,20" fill="rgba(255,255,255,.9)"/>
-          <!-- Center dot -->
           <circle cx="26" cy="26" r="3" fill="rgba(192,71,42,.8)"/>
         </svg>
       </div>
@@ -968,9 +957,6 @@ index
     </div>
   </header>
 
-  <!-- ================================================================
-       NAV
-  ================================================================ -->
   <nav class="site-nav" role="navigation" aria-label="Trip sections">
     <div class="nav-inner container--wide">
       <button class="nav-btn active" onclick="showTab('itinerary', this)" id="btn-itinerary">Fixed Logistics</button>
@@ -980,12 +966,8 @@ index
     </div>
   </nav>
 
-  <!-- ================================================================
-       TAB PANELS
-  ================================================================ -->
   <main class="tab-panels">
 
-    <!-- ======================== ITINERARY ======================== -->
     <div id="itinerary" class="tab-panel active">
       <div class="container">
         <div class="panel-header">
@@ -995,7 +977,6 @@ index
 
         <div class="timeline">
 
-          <!-- Athens -->
           <div class="timeline-item">
             <div class="timeline-spine">
               <div class="timeline-dot"></div>
@@ -1038,7 +1019,6 @@ index
             </div>
           </div>
 
-          <!-- Santorini -->
           <div class="timeline-item">
             <div class="timeline-spine">
               <div class="timeline-dot"></div>
@@ -1073,7 +1053,6 @@ index
             </div>
           </div>
 
-          <!-- Paros -->
           <div class="timeline-item">
             <div class="timeline-spine">
               <div class="timeline-dot"></div>
@@ -1116,7 +1095,6 @@ index
             </div>
           </div>
 
-          <!-- Berlin -->
           <div class="timeline-item">
             <div class="timeline-spine">
               <div class="timeline-dot"></div>
@@ -1124,10 +1102,10 @@ index
             </div>
             <div class="timeline-body">
               <p class="timeline-location">Berlin, Germany</p>
-              <h3>May 28 – 31: Lauren & Wife Continue</h3>
+              <h3>May 28 – 31: Berlin City Break</h3>
 
               <div class="callout">
-                <p><strong>Berlin leg:</strong> Erin departs from Paros while the rest of the family continues on to Berlin — a city perfectly timed for <strong>Berlin Design Week (May 28–31)</strong>, an ideal fit for Lauren's interest in international fashion and creative industry.</p>
+                <p><strong>Berlin leg:</strong> Erin departs from Paros while the rest of the family continues on to Berlin — a city perfectly timed for <strong>Berlin Design Week (May 28–31)</strong>.</p>
               </div>
 
               <div class="logistics-card">
@@ -1154,7 +1132,6 @@ index
             </div>
           </div>
 
-          <!-- Return -->
           <div class="timeline-item">
             <div class="timeline-spine">
               <div class="timeline-dot"></div>
@@ -1176,11 +1153,9 @@ index
             </div>
           </div>
 
-        </div><!-- /timeline -->
-      </div>
+        </div></div>
     </div>
 
-    <!-- ======================== EXPLORE ======================== -->
     <div id="explore" class="tab-panel">
       <div class="container">
         <div class="panel-header">
@@ -1195,7 +1170,7 @@ index
               <div class="explore-summary">
                 <div class="explore-summary-left">
                   <span class="explore-tag">Athens</span>
-                  <span class="explore-title">Democracy, Ruins & Agora Markets</span>
+                  <span class="explore-title">Engineering, Ruins & Luxury Retail</span>
                 </div>
                 <div class="explore-chevron">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
@@ -1207,22 +1182,22 @@ index
                 <div class="option-item">
                   <div class="option-badge">A</div>
                   <div class="option-content">
-                    <h4>ERGON House Agora</h4>
-                    <p>The ground floor is a spectacular marketplace packed with Greek olive oils, artisanal cheeses, and cured meats — essentially a living, shoppable catalog of Greek produce. The café upstairs turns the same ingredients into refined small plates. A natural for Lauren to browse the intersection of food, branding, and retail.</p>
+                    <h4>The Antikythera Mechanism</h4>
+                    <p>A quick detour to the National Archaeological Museum to see the world's first analog computer. Used by ancient Greeks to predict astronomical positions and eclipses with terrifying precision, it is an absolute marvel of early aerospace and mechanical engineering.</p>
                   </div>
                 </div>
                 <div class="option-item">
                   <div class="option-badge gold">B</div>
                   <div class="option-content">
-                    <h4>The Ancient Agora & Museum</h4>
-                    <p>The beating commercial and political heart of classical Athens — where the concept of democratic debate was literally invented. Look for the "ostraca," shards of pottery Athenians used to vote for politicians' exile. The reconstructed Stoa of Attalos houses a superb collection. <em>For Erin:</em> the ancient engineering of the water clock (klepsydra) is worth finding.</p>
+                    <h4>Voukourestiou Street & Greek Luxury</h4>
+                    <p>Wander down Voukourestiou Street, Athens' high-end retail artery, and pop into flagship stores for Greek luxury brands like Zeus+Dione. An excellent, real-world case study in how heritage styling is marketed to an international audience.</p>
                   </div>
                 </div>
                 <div class="option-item">
                   <div class="option-badge accent">C</div>
                   <div class="option-content">
                     <h4>Plaka & Monastiraki Wander</h4>
-                    <p>The oldest continuously inhabited neighborhood in Athens. Wind through marble-cobbled alleys, past Byzantine-era churches with Ottoman minarets, down into Monastiraki's flea market, and finish with a coffee overlooking the Roman Agora. At dusk, the Acropolis lights up above the rooftops — one of travel's great visual rewards.</p>
+                    <p>The oldest continuously inhabited neighborhood in Athens. Wind through marble-cobbled alleys, past Byzantine-era churches with Ottoman minarets, down into Monastiraki's flea market, and finish with a coffee overlooking the Roman Agora.</p>
                   </div>
                 </div>
               </div>
@@ -1247,14 +1222,14 @@ index
                   <div class="option-badge">A</div>
                   <div class="option-content">
                     <h4>Skaros Rock & Ancient Thera</h4>
-                    <p>Hike out to the medieval Venetian ruins of Skaros Rock on the caldera rim, or drive up to Ancient Thera — a mountaintop city perched at 360m that served as a Ptolemaic military garrison and later a Byzantine stronghold. The views extend to neighboring islands and make the ruins feel genuinely remote. <em>Erin would appreciate the engineering: the walls survive in part because they follow the natural basalt contours.</em></p>
+                    <p>Hike out to the medieval Venetian ruins of Skaros Rock on the caldera rim, or drive up to Ancient Thera — a mountaintop city perched at 360m that served as a Ptolemaic military garrison and later a Byzantine stronghold. The views extend to neighboring islands and make the ruins feel genuinely remote. The walls survive in part because they brilliantly utilize the natural basalt contours.</p>
                   </div>
                 </div>
                 <div class="option-item">
                   <div class="option-badge gold">B</div>
                   <div class="option-content">
                     <h4>Exo Gonia & Kamari Open-Air Cinema</h4>
-                    <p>Escape the caldera crowds entirely — dinner at Metaxí Mas in the quiet inland village of Exo Gonia (tucked behind Agios Charalambos church; beloved by locals for its moussaka and house wine). Then a 5-minute drive down to Kamari's open-air cinema for a late-night film under the stars. One of the Aegean's most charming evenings.</p>
+                    <p>Escape the caldera crowds entirely — dinner at Metaxí Mas in the quiet inland village of Exo Gonia. Then a 5-minute drive down to Kamari's open-air cinema for a late-night film under the stars. One of the Aegean's most charming evenings.</p>
                   </div>
                 </div>
               </div>
@@ -1279,21 +1254,14 @@ index
                   <div class="option-badge">A</div>
                   <div class="option-content">
                     <h4>Naoussa Harbour & Lakkoumades</h4>
-                    <p>Head into Naoussa in the early evening: try to secure a harbor-front table at Barbarossa for high-end seafood, or wander to one of the smaller alley tavernas. End with loukoumades — hot fried dough with honey and crushed pistachios — from a street vendor. The harbor lights reflect off the former Venetian fortress ruins into the water. A very good evening.</p>
+                    <p>Head into Naoussa in the early evening: try to secure a harbor-front table at Barbarossa for high-end seafood, or wander to one of the smaller alley tavernas. End with loukoumades — hot fried dough with honey and crushed pistachios — from a street vendor.</p>
                   </div>
                 </div>
                 <div class="option-item">
                   <div class="option-badge gold">B</div>
                   <div class="option-content">
                     <h4>Lefkes & the Byzantine Road</h4>
-                    <p>Drive to the mountain village of Lefkes and hike the 1,000-year-old marble-paved Byzantine Road (roughly 3.5km) down through olive groves to Prodromos. The path was the island's main trade artery for centuries. Gentle descent, spectacular views, and almost no tourists. <em>For Erin:</em> the medieval engineering of the path — designed to channel rainwater and resist erosion — is still entirely functional.</p>
-                  </div>
-                </div>
-                <div class="option-item">
-                  <div class="option-badge accent">C</div>
-                  <div class="option-content">
-                    <h4>Piso Livadi & Marble Quarry</h4>
-                    <p>The village of Piso Livadi is quieter than Naoussa and has excellent waterfront seafood at Markakis — a small, authentic place by fishing boats using strictly local ingredients. Nearby, the ancient Marathi marble quarries (source of the marble for the Venus de Milo) can be visited; the underground tunnels are eerie and extraordinary.</p>
+                    <p>Drive to the mountain village of Lefkes and hike the 1,000-year-old marble-paved Byzantine Road (roughly 3.5km) down through olive groves to Prodromos. The path was the island's main trade artery for centuries. The ancient engineering of the path — designed to channel rainwater and resist erosion — is still entirely functional.</p>
                   </div>
                 </div>
               </div>
@@ -1305,7 +1273,7 @@ index
               <div class="explore-summary">
                 <div class="explore-summary-left">
                   <span class="explore-tag">Berlin</span>
-                  <span class="explore-title">Design Week, Palaces & Cold War History</span>
+                  <span class="explore-title">Design Week, Fashion Merchandising & Palaces</span>
                 </div>
                 <div class="explore-chevron">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
@@ -1317,33 +1285,31 @@ index
                 <div class="option-item">
                   <div class="option-badge">A</div>
                   <div class="option-content">
-                    <h4>Berlin Design Week (May 28–31)</h4>
-                    <p>The timing is perfect: Berlin Design Week runs precisely during your stay, with exhibitions, studios, and showrooms open across Mitte, Prenzlauer Berg, and Kreuzberg. For Lauren — fashion, product design, packaging, branding, and retail concepts converge here in a way few European cities match. Check the program at designweek.berlin; some events require advance registration.</p>
+                    <h4>Berlin Design Week & Voo Store</h4>
+                    <p>Berlin Design Week runs precisely during your stay. Combine this with a visit to Kreuzberg’s famous Voo Store, a masterclass in modern fashion retail, blending high-end international designers with progressive lifestyle curation and an in-house café.</p>
                   </div>
                 </div>
                 <div class="option-item">
                   <div class="option-badge gold">B</div>
                   <div class="option-content">
-                    <h4>Day Trip to Potsdam</h4>
-                    <p>A 30-minute S-Bahn ride from the center brings you to Sanssouci, Frederick the Great's UNESCO-listed Baroque palace and park complex. The terraced vineyard gardens, rococo Chinese teahouse, and sprawling parkland feel worlds away from the city. The New Palace at the far end of the park is the most dramatically scaled royal building in Germany outside Munich. Half a day is enough; arrive by 9am before coach groups.</p>
+                    <h4>Bikini Berlin Concept Mall</h4>
+                    <p>Located near the Berlin Zoo, Bikini Berlin operates as the world's first "concept mall." Instead of standard chain stores, it features temporary "boxes" for emerging designers to launch their brands. It is a brilliant, live look at international retail strategy and pop-up marketing.</p>
                   </div>
                 </div>
                 <div class="option-item">
                   <div class="option-badge accent">C</div>
                   <div class="option-content">
-                    <h4>Berlin Wall Memorial & Checkpoint Charlie</h4>
-                    <p>The Gedenkstätte Berliner Mauer (Wall Memorial) on Bernauer Strasse preserves a full original section with watchtower, death strip, and escape tunnels documented in haunting detail — far more affecting than the touristy Checkpoint Charlie. The Hamburger Bahnhof contemporary art museum is a short walk. Plan for a few hours; the memorial is unexpectedly powerful.</p>
+                    <h4>Day Trip to Potsdam</h4>
+                    <p>A 30-minute S-Bahn ride from the center brings you to Sanssouci, Frederick the Great's UNESCO-listed Baroque palace and park complex. The terraced vineyard gardens, rococo Chinese teahouse, and sprawling parkland feel worlds away from the city.</p>
                   </div>
                 </div>
               </div>
             </div>
           </details>
 
-        </div><!-- /explore-grid -->
-      </div>
+        </div></div>
     </div>
 
-    <!-- ======================== DINING ======================== -->
     <div id="dining" class="tab-panel">
       <div class="container">
         <div class="panel-header">
@@ -1351,7 +1317,6 @@ index
           <p>Michelin Bib Gourmand picks, local gems, and good-value finds — the philosophy is great ingredients, honest cooking, no tourist markup.</p>
         </div>
 
-        <!-- Athens -->
         <div class="dining-location-group">
           <div class="dining-location-header">
             <span class="dining-flag">🏛️</span>
@@ -1412,7 +1377,6 @@ index
           </div>
         </div>
 
-        <!-- Santorini -->
         <div class="dining-location-group">
           <div class="dining-location-header">
             <span class="dining-flag">🌋</span>
@@ -1442,7 +1406,7 @@ index
 
             <div class="dining-card">
               <div class="dining-card-header">
-                <span class="dining-name">Salt &amp; Pepper</span>
+                <span class="dining-name">Salt & Pepper</span>
                 <span class="dining-badge badge-gem">Local Favorite</span>
               </div>
               <p class="dining-cuisine">Seafood · Family-run · Fira</p>
@@ -1453,7 +1417,6 @@ index
           </div>
         </div>
 
-        <!-- Paros -->
         <div class="dining-location-group">
           <div class="dining-location-header">
             <span class="dining-flag">⚓</span>
@@ -1494,7 +1457,6 @@ index
           </div>
         </div>
 
-        <!-- Berlin -->
         <div class="dining-location-group">
           <div class="dining-location-header">
             <span class="dining-flag">🐻</span>
@@ -1529,7 +1491,7 @@ index
               </div>
               <p class="dining-cuisine">Vegetarian Fine Dining · Mitte</p>
               <p class="dining-desc">Since 2007, Berlin's best-known vegetarian fine dining restaurant — Michelin starred since 2018. The hidden entrance (through a parking garage, up a service staircase) adds to the mythology. Bold creative vegan and vegetarian cuisine that surprises at every turn. Near Friedrichstrasse.</p>
-              <p class="dining-tip">Behrenstraße 55, Mitte. Book well in advance. Excellent for Lauren — a masterclass in plant-forward creative cuisine as a luxury positioning.</p>
+              <p class="dining-tip">Behrenstraße 55, Mitte. Book well in advance. A masterclass in plant-forward creative cuisine as a luxury positioning.</p>
             </div>
 
             <div class="dining-card">
@@ -1548,7 +1510,6 @@ index
       </div>
     </div>
 
-    <!-- ======================== HISTORY ======================== -->
     <div id="history" class="tab-panel">
       <div class="container">
         <div class="panel-header">
@@ -1568,7 +1529,6 @@ index
             <div class="history-card-image">
               <div class="history-visual">
                 <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
-                  <!-- Simple Parthenon silhouette -->
                   <rect x="4" y="36" width="40" height="3"/>
                   <rect x="8" y="30" width="32" height="6"/>
                   <line x1="12" y1="30" x2="12" y2="10"/>
@@ -1592,7 +1552,6 @@ index
             <div class="history-card-image">
               <div class="history-visual">
                 <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
-                  <!-- Volcano / caldera shape -->
                   <path d="M4 40 Q12 20 20 15 L24 8 L28 15 Q36 20 44 40 Z" />
                   <path d="M10 40 Q18 28 24 28 Q30 28 38 40" />
                   <ellipse cx="24" cy="32" rx="8" ry="4"/>
@@ -1611,7 +1570,6 @@ index
             <div class="history-card-image">
               <div class="history-visual">
                 <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
-                  <!-- Marble quarry / column -->
                   <rect x="18" y="4" width="12" height="36" rx="2"/>
                   <rect x="14" y="4" width="20" height="4" rx="1"/>
                   <rect x="14" y="36" width="20" height="4" rx="1"/>
@@ -1632,7 +1590,6 @@ index
             <div class="history-card-image">
               <div class="history-visual">
                 <svg width="48" height="48" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
-                  <!-- Brandenburg Gate simplified -->
                   <rect x="6" y="28" width="5" height="12"/>
                   <rect x="37" y="28" width="5" height="12"/>
                   <rect x="14" y="30" width="5" height="10"/>
@@ -1640,7 +1597,6 @@ index
                   <rect x="19" y="32" width="10" height="8"/>
                   <rect x="4" y="24" width="40" height="6"/>
                   <polygon points="4,24 24,10 44,24"/>
-                  <!-- Quadriga top suggestion -->
                   <line x1="20" y1="10" x2="28" y2="10"/>
                 </svg>
                 <span>Berlin · Brandenburg Gate</span>
@@ -1650,13 +1606,12 @@ index
 
         </div>
 
-        <!-- Family tie-in note -->
         <div class="callout" style="margin-top: var(--space-10)">
-          <p><strong>For Erin (Aerospace Engineering):</strong> In Athens, the Antikythera Mechanism at the National Archaeological Museum is a 2,100-year-old analog computer — a bronze geared device that tracked astronomical cycles with a precision that astonished modern engineers when it was decoded. Arguably the most sophisticated engineering artifact of the ancient world. In Berlin, the German Technology Museum (Deutsches Technikmuseum) covers aviation history including early jet propulsion development.</p>
+          <p><strong>For Erin:</strong> Before trading the Aegean for Denver and stepping into a new role at Lockheed Martin, the National Archaeological Museum in Athens is a highly recommended stop. It houses the Antikythera Mechanism—a 2,100-year-old bronze analog computer that tracked astronomical cycles with precision that continues to astonish modern scientists. It is arguably the most sophisticated engineering artifact of the ancient world.</p>
         </div>
 
         <div class="callout">
-          <p><strong>For Lauren (International Fashion & Business):</strong> The Cycladic islands — Paros especially — have become a significant summer destination for European fashion industry figures, and Paros in particular has a small but growing artisan and jewelry design scene centered in Naoussa. In Berlin, the Hackesche Höfe (adjacent to your hotel) is a complex of interconnected courtyards housing independent fashion designers, concept stores, and galeries — one of the best concentrations of independent European fashion retail outside Paris.</p>
+          <p><strong>For Lauren:</strong> Berlin’s avant-garde retail scene provides an excellent live case study for the business of international fashion, perfectly timed for a recent graduate with a marketing and international relations degree. The Hackesche Höfe, right next to the hotel, houses independent European fashion designers. Further afield, Bikini Berlin operates as the world’s first "concept mall," offering a brilliant look at modern luxury and sustainable merchandising alongside the events of Berlin Design Week.</p>
         </div>
 
       </div>
@@ -1664,16 +1619,10 @@ index
 
   </main>
 
-  <!-- ================================================================
-       FOOTER
-  ================================================================ -->
   <footer class="site-footer">
-    <p>Athens · Santorini · Paros · Berlin &mdash; May 18 – 31, 2026 &nbsp;·&nbsp; Built for the Quick Family Journey</p>
+    <p>Athens · Santorini · Paros · Berlin — May 18 – 31, 2026  ·  Built for the Quick Family Journey</p>
   </footer>
 
-  <!-- ================================================================
-       SCRIPTS
-  ================================================================ -->
   <script>
     // Tab switching
     function showTab(tabId, btn) {
