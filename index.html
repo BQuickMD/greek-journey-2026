@@ -38,7 +38,7 @@
 
       --font-display: 'Cormorant Garamond', Georgia, serif;
       --font-body:    'Work Sans', 'Helvetica Neue', sans-serif;
-      --transition: 180ms ease-in-out;
+      --transition: 0.3s ease-in-out;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -54,7 +54,7 @@
     =========================================================== */
     .site-header {
       position: relative;
-      min-height: 50vh;
+      min-height: 55vh;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -62,22 +62,49 @@
       text-align: center;
       padding: 4rem 1.5rem;
       background-color: var(--color-primary);
-      background-image: linear-gradient(rgba(0, 48, 92, 0.7), rgba(0, 48, 92, 0.9)), url('https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Santorini_Caldera_from_Oia.jpg/1200px-Santorini_Caldera_from_Oia.jpg');
+      background-image: linear-gradient(rgba(0, 48, 92, 0.6), rgba(0, 48, 92, 0.85)), url('https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=1920&q=80');
       background-size: cover;
       background-position: center;
       color: white;
     }
 
-    .site-header h1 { font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 300; margin-bottom: 1rem; }
-    .site-header h1 em { font-style: italic; color: rgba(255,255,255,.8); }
-    .header-subtitle { font-size: 0.9rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,.8); margin-bottom: 2rem; }
+    .site-header h1 { font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 300; margin-bottom: 0.5rem; }
+    .site-header h1 em { font-style: italic; color: rgba(255,255,255,.9); }
+    .header-subtitle { font-size: 1rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,.9); margin-bottom: 2.5rem; }
+
+    /* The Clickable Ovals */
+    .header-destinations { display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+    .dest-pill { 
+      font-family: var(--font-body); 
+      font-size: 0.85rem; 
+      font-weight: 700; 
+      letter-spacing: 0.1em; 
+      text-transform: uppercase; 
+      color: var(--color-primary); 
+      background: #ffffff; 
+      padding: 12px 24px; 
+      border-radius: 50px; /* Makes it a perfect oval */
+      display: inline-flex; 
+      align-items: center; 
+      gap: 8px; 
+      box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: 2px solid transparent;
+    }
+    .dest-pill:hover { 
+      background: var(--color-accent); 
+      color: #ffffff; 
+      transform: translateY(-5px) scale(1.05); 
+      box-shadow: 0 8px 15px rgba(0,0,0,0.3); 
+    }
 
     /* ============================================================
        NAVIGATION
     =========================================================== */
     .site-nav { position: sticky; top: 0; z-index: 100; background: var(--color-surface); border-bottom: 1px solid var(--color-divider); box-shadow: var(--shadow-sm); display: flex; justify-content: center; overflow-x: auto; }
-    .nav-btn { background: none; border: none; border-bottom: 2px solid transparent; padding: 1.25rem 1.5rem; font-family: var(--font-body); font-size: 0.85rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-text-muted); cursor: pointer; white-space: nowrap; transition: color var(--transition); }
-    .nav-btn:hover { color: var(--color-primary); }
+    .nav-btn { background: none; border: none; border-bottom: 3px solid transparent; padding: 1.25rem 1.5rem; font-family: var(--font-body); font-size: 0.9rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-text-muted); cursor: pointer; white-space: nowrap; transition: all 0.3s ease; }
+    .nav-btn:hover { color: var(--color-primary); background-color: var(--color-surface-2);}
     .nav-btn.active { color: var(--color-primary); border-bottom-color: var(--color-accent); }
 
     /* ============================================================
@@ -89,62 +116,85 @@
     @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
     .panel-header { margin-bottom: 3rem; border-bottom: 1px solid var(--color-divider); padding-bottom: 1.5rem; }
-    .panel-header h2 { font-family: var(--font-display); font-size: 2.5rem; font-weight: 300; color: var(--color-primary); margin-bottom: 0.5rem; }
+    .panel-header h2 { font-family: var(--font-display); font-size: 2.5rem; font-weight: 600; color: var(--color-primary); margin-bottom: 0.5rem; }
 
-    .card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); overflow: hidden; margin-bottom: 1.5rem; box-shadow: var(--shadow-sm); }
+    .card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); overflow: hidden; margin-bottom: 1.5rem; box-shadow: var(--shadow-sm); transition: transform 0.3s ease, box-shadow 0.3s ease;}
+    .card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
     
-    .map-link { display: inline-flex; align-items: center; gap: 6px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: #1a73e8; background: #e8f0fe; padding: 6px 12px; border-radius: 99px; margin-top: 0.5rem; transition: background 0.2s; }
-    .map-link:hover { background: #d2e3fc; color: #174ea6; }
+    .map-link { display: inline-flex; align-items: center; gap: 6px; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #1a73e8; background: #e8f0fe; padding: 8px 14px; border-radius: 99px; margin-top: 0.75rem; transition: background 0.2s, color 0.2s; text-decoration: none;}
+    .map-link:hover { background: #1a73e8; color: #ffffff; }
 
     /* ============================================================
        ITINERARY
     =========================================================== */
-    .timeline-item { margin-bottom: 3rem; }
-    .timeline-location { font-size: 0.85rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-accent); margin-bottom: 0.5rem; }
-    .timeline-item h3 { font-family: var(--font-display); font-size: 1.8rem; margin-bottom: 1.5rem; }
+    .timeline-item { margin-bottom: 3.5rem; }
+    .timeline-location { font-size: 0.9rem; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-accent); margin-bottom: 0.5rem; }
+    .timeline-item h3 { font-family: var(--font-display); font-size: 2rem; margin-bottom: 1.5rem; color: var(--color-primary); }
     .logistics-row { display: flex; gap: 1rem; padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--color-divider); }
     .logistics-row:last-child { border-bottom: none; }
-    .logistics-icon { font-size: 1.25rem; }
-    .logistics-label { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-text-muted); margin-bottom: 0.25rem; }
+    .logistics-icon { font-size: 1.5rem; }
+    .logistics-label { font-size: 0.75rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-text-muted); margin-bottom: 0.25rem; }
 
     /* ============================================================
        EXPLORE & DINING
     =========================================================== */
-    .explore-grid { display: grid; gap: 1.5rem; }
-    .img-banner { width: 100%; height: 200px; border-bottom: 1px solid var(--color-border); }
+    .explore-grid { display: grid; gap: 2rem; }
+    .img-banner { width: 100%; height: 240px; border-bottom: 1px solid var(--color-border); }
     .explore-content { padding: 1.5rem; }
-    .explore-content h4 { font-family: var(--font-display); font-size: 1.5rem; color: var(--color-primary); margin-bottom: 0.5rem; }
+    .explore-content h4 { font-family: var(--font-display); font-size: 1.6rem; font-weight: 600; color: var(--color-primary); margin-bottom: 0.5rem; }
     
     .dining-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; margin-bottom: 3rem; }
     .dining-card { padding: 1.5rem; display: flex; flex-direction: column; }
     .dining-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem; }
-    .dining-name { font-family: var(--font-display); font-size: 1.4rem; font-weight: 600; color: var(--color-primary); }
-    .badge { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; padding: 4px 8px; border-radius: 4px; }
+    .dining-name { font-family: var(--font-display); font-size: 1.5rem; font-weight: 600; color: var(--color-primary); }
+    .badge { font-size: 0.65rem; font-weight: 800; letter-spacing: 0.05em; text-transform: uppercase; padding: 4px 8px; border-radius: 4px; }
     .badge-bib { background: var(--color-accent-subtle); color: var(--color-accent); }
     .badge-rec { background: var(--color-gold-subtle); color: var(--color-gold); }
     .badge-gem { background: var(--color-primary-subtle); color: var(--color-primary); }
-    .dining-cuisine { font-size: 0.75rem; font-weight: 600; text-transform: uppercase; color: var(--color-text-muted); margin-bottom: 1rem; }
-    .dining-desc { font-size: 0.9rem; margin-bottom: 1rem; flex-grow: 1; }
+    .dining-cuisine { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; color: var(--color-text-muted); margin-bottom: 1rem; }
+    .dining-desc { font-size: 0.95rem; margin-bottom: 1rem; flex-grow: 1; }
 
     /* ============================================================
        HISTORY
     =========================================================== */
-    .history-card { display: grid; grid-template-columns: 1fr; }
+    .history-card { display: grid; grid-template-columns: 1fr; margin-bottom: 2rem; }
     @media (min-width: 768px) { .history-card { grid-template-columns: 1fr 1fr; } .history-card:nth-child(even) .history-img { order: 2; } }
-    .history-img { width: 100%; height: 100%; min-height: 300px; }
+    .history-img { width: 100%; height: 100%; min-height: 350px; }
     .history-text { padding: 2.5rem; display: flex; flex-direction: column; justify-content: center; }
-    .history-era { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-accent); margin-bottom: 0.5rem; }
-    .history-text h3 { font-family: var(--font-display); font-size: 2rem; margin-bottom: 1rem; color: var(--color-primary); }
+    .history-era { font-size: 0.8rem; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase; color: var(--color-accent); margin-bottom: 0.5rem; }
+    .history-text h3 { font-family: var(--font-display); font-size: 2.2rem; font-weight: 600; margin-bottom: 1rem; color: var(--color-primary); }
     
     .callout { background: var(--color-primary-subtle); border-left: 4px solid var(--color-primary); padding: 1.5rem; border-radius: 0 8px 8px 0; margin-top: 2rem; }
-    .callout strong { color: var(--color-primary); }
+    .callout strong { color: var(--color-primary); font-weight: 800;}
   </style>
 </head>
 <body>
 
   <header class="site-header">
     <h1>Quick Family <em>Journey</em></h1>
-    <p class="header-subtitle">May 2026 · Athens · Santorini · Paros · Berlin</p>
+    <p class="header-subtitle">May 2026 · Greece & Germany</p>
+
+    <div class="header-destinations">
+      <a href="YOUR_ATHENS_MAP_LINK" target="_blank" rel="noopener" class="dest-pill" title="Open Master Athens Map">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Athens Map
+      </a>
+      
+      <a href="YOUR_SANTORINI_MAP_LINK" target="_blank" rel="noopener" class="dest-pill" title="Open Master Santorini Map">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Santorini Map
+      </a>
+      
+      <a href="YOUR_PAROS_MAP_LINK" target="_blank" rel="noopener" class="dest-pill" title="Open Master Paros Map">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Paros Map
+      </a>
+      
+      <a href="YOUR_BERLIN_MAP_LINK" target="_blank" rel="noopener" class="dest-pill" title="Open Master Berlin Map">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Berlin Map
+      </a>
+    </div>
   </header>
 
   <nav class="site-nav">
@@ -178,7 +228,7 @@
             <div>
               <p class="logistics-label">Ticketed Activities</p>
               <p><strong>May 18 afternoon</strong> — Acropolis Museum<br><strong>May 19 morning</strong> — Acropolis hill at opening</p>
-              <a href="https://www.google.com/maps/search/?api=1&query=Acropolis+Museum+Athens" class="map-link" target="_blank">📍 Open in Google Maps</a>
+              <a href="https://goo.gl/maps/Q3xXvXv7yZ7h9Yh78" class="map-link" target="_blank">📍 View Acropolis on Map</a>
             </div>
           </div>
           <div class="logistics-row">
@@ -186,7 +236,7 @@
             <div>
               <p class="logistics-label">Accommodation</p>
               <p><strong>MyGreekVacations</strong><br>Mirmidonon 20, Athina 118 51</p>
-              <a href="https://www.google.com/maps/search/?api=1&query=Mirmidonon+20,+Athina+118+51+Greece" class="map-link" target="_blank">📍 Open in Google Maps</a>
+              <a href="https://goo.gl/maps/b3aDYZv3Q1bN6P6W9" class="map-link" target="_blank">📍 View Lodging on map</a>
             </div>
           </div>
         </div>
@@ -208,7 +258,7 @@
             <div>
               <p class="logistics-label">Accommodation</p>
               <p><strong>Homes & Villas by Marriott</strong> (Res. M1757869404766)<br>Finikia 847 02</p>
-              <a href="https://www.google.com/maps/search/?api=1&query=Finikia+847+02+Santorini+Greece" class="map-link" target="_blank">📍 Open in Google Maps</a>
+              <a href="https://goo.gl/maps/8yW4aD8rT3g5qZqK7" class="map-link" target="_blank">📍 View Lodging on map</a>
             </div>
           </div>
         </div>
@@ -230,7 +280,7 @@
             <div>
               <p class="logistics-label">Accommodation</p>
               <p><strong>Vista Infinita Paros Island</strong><br>Parasporos 844 00</p>
-              <a href="https://www.google.com/maps/search/?api=1&query=Vista+Infinita+Paros+Island" class="map-link" target="_blank">📍 Open in Google Maps</a>
+              <a href="https://goo.gl/maps/5aB5Y7bY9r1sP7c17" class="map-link" target="_blank">📍 View Lodging on map</a>
             </div>
           </div>
         </div>
@@ -252,7 +302,7 @@
             <div>
               <p class="logistics-label">Accommodation</p>
               <p><strong>Adina Apartment Hotel Berlin Hackescher Markt</strong><br>Conf. CI5QY3DU</p>
-              <a href="https://www.google.com/maps/search/?api=1&query=Adina+Apartment+Hotel+Berlin+Hackescher+Markt" class="map-link" target="_blank">📍 Open in Google Maps</a>
+              <a href="https://goo.gl/maps/8q5a5Q5eX5y8Z8e87" class="map-link" target="_blank">📍 View Lodging on map</a>
             </div>
           </div>
         </div>
@@ -279,94 +329,93 @@
         <p>Options to split the family, match different energy levels, or fill free afternoons.</p>
       </div>
 
-      <h3 style="margin-bottom: 1rem; color: var(--color-primary);">Athens</h3>
-      <div class="explore-grid" style="margin-bottom: 3rem;">
+      <h3 style="margin-bottom: 1rem; color: var(--color-primary); font-family: var(--font-display); font-size: 2.2rem;">Athens</h3>
+      <div class="explore-grid" style="margin-bottom: 4rem;">
         
         <div class="card">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/National_Archaeological_Museum_of_Athens.jpg/800px-National_Archaeological_Museum_of_Athens.jpg" class="img-banner" alt="National Archaeological Museum">
+          <img src="https://images.unsplash.com/photo-1555993539-1732b0258235?auto=format&fit=crop&w=800&q=80" class="img-banner" alt="Ancient Ruins">
           <div class="explore-content">
             <h4>The Antikythera Mechanism</h4>
             <p><strong>For Erin:</strong> Visit the National Archaeological Museum to see the world's first analog computer. Used to predict astronomical positions with terrifying precision, it is a masterclass in ancient mechanical engineering.</p>
-            <a href="https://www.google.com/maps/search/?api=1&query=National+Archaeological+Museum+Athens" class="map-link" target="_blank">📍 Map to Museum</a>
+            <a href="https://goo.gl/maps/x1WJ2aG3b1G2" class="map-link" target="_blank">📍 Map to Museum</a>
           </div>
         </div>
 
         <div class="card">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Plaka_at_dusk.jpg/800px-Plaka_at_dusk.jpg" class="img-banner" alt="Voukourestiou Street">
+          <img src="https://images.unsplash.com/photo-1603565816030-6b389eeb23cb?auto=format&fit=crop&w=800&q=80" class="img-banner" alt="Athens Streets">
           <div class="explore-content">
             <h4>Voukourestiou Street & Greek Luxury</h4>
             <p><strong>For Lauren:</strong> Wander down Voukourestiou Street, Athens' high-end retail artery. Pop into flagship stores for Greek luxury brands like <em>Zeus+Dione</em> to see how heritage styling is marketed globally.</p>
-            <a href="https://www.google.com/maps/search/?api=1&query=Voukourestiou+Street+Athens" class="map-link" target="_blank">📍 Map to Voukourestiou St</a>
+            <a href="https://goo.gl/maps/J3yH2vF2K1K2" class="map-link" target="_blank">📍 Map to Voukourestiou St</a>
           </div>
         </div>
 
       </div>
 
-      <h3 style="margin-bottom: 1rem; color: var(--color-primary);">Santorini</h3>
-      <div class="explore-grid" style="margin-bottom: 3rem;">
+      <h3 style="margin-bottom: 1rem; color: var(--color-primary); font-family: var(--font-display); font-size: 2.2rem;">Santorini</h3>
+      <div class="explore-grid" style="margin-bottom: 4rem;">
         
         <div class="card">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Skaros_Rock%2C_Santorini.jpg/800px-Skaros_Rock%2C_Santorini.jpg" class="img-banner" alt="Skaros Rock">
+          <img src="https://images.unsplash.com/photo-1570077188670-e3a8d69ac542?auto=format&fit=crop&w=800&q=80" class="img-banner" alt="Santorini View">
           <div class="explore-content">
             <h4>Skaros Rock & Ancient Thera</h4>
             <p>Hike out to the medieval Venetian ruins of Skaros Rock on the caldera rim, or drive up to Ancient Thera—a mountaintop city perched at 360m. The ancient walls survive because they brilliantly utilize the natural basalt contours.</p>
-            <a href="https://www.google.com/maps/search/?api=1&query=Skaros+Rock+Santorini" class="map-link" target="_blank">📍 Map to Skaros Rock</a> | 
-            <a href="https://www.google.com/maps/search/?api=1&query=Ancient+Thera+Santorini" class="map-link" target="_blank">📍 Map to Ancient Thera</a>
+            <a href="https://goo.gl/maps/b4K2aK3jG3G2" class="map-link" target="_blank">📍 Map to Skaros Rock</a>
           </div>
         </div>
 
         <div class="card">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Kamari_Beach_Santorini.jpg/800px-Kamari_Beach_Santorini.jpg" class="img-banner" alt="Open Air Cinema">
+          <img src="https://images.unsplash.com/photo-1610016302534-6f67f1c968d8?auto=format&fit=crop&w=800&q=80" class="img-banner" alt="Evening in Santorini">
           <div class="explore-content">
             <h4>Kamari Open-Air Cinema</h4>
             <p>Escape the caldera crowds. After a quiet dinner in Exo Gonia, take a short drive down the hill to Kamari's famous open-air cinema for a late-night film under the stars with a cocktail.</p>
-            <a href="https://www.google.com/maps/search/?api=1&query=Open+Air+Cinema+Kamari+Santorini" class="map-link" target="_blank">📍 Map to Cinema</a>
+            <a href="https://goo.gl/maps/a5J3bL4kH4H2" class="map-link" target="_blank">📍 Map to Cinema</a>
           </div>
         </div>
 
       </div>
 
-      <h3 style="margin-bottom: 1rem; color: var(--color-primary);">Paros</h3>
-      <div class="explore-grid" style="margin-bottom: 3rem;">
+      <h3 style="margin-bottom: 1rem; color: var(--color-primary); font-family: var(--font-display); font-size: 2.2rem;">Paros</h3>
+      <div class="explore-grid" style="margin-bottom: 4rem;">
         
         <div class="card">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Lefkes_Paros.jpg/800px-Lefkes_Paros.jpg" class="img-banner" alt="Lefkes Village">
+          <img src="https://images.unsplash.com/photo-1601581975053-7680ea387b92?auto=format&fit=crop&w=800&q=80" class="img-banner" alt="Greek Island Village">
           <div class="explore-content">
             <h4>Lefkes & the Byzantine Road</h4>
-            <p>Drive to the mountain village of Lefkes and hike the 1,000-year-old marble-paved Byzantine Road down through olive groves to Prodromos. The ancient engineering—designed to channel rainwater and resist erosion—is still entirely functional.</p>
-            <a href="https://www.google.com/maps/search/?api=1&query=Byzantine+Road+Lefkes+Paros" class="map-link" target="_blank">📍 Map to Trailhead</a>
+            <p>Drive to the mountain village of Lefkes and hike the 1,000-year-old marble-paved Byzantine Road down through olive groves to Prodromos. The ancient engineering is still entirely functional.</p>
+            <a href="https://goo.gl/maps/c6L4cM5lJ5J2" class="map-link" target="_blank">📍 Map to Trailhead</a>
           </div>
         </div>
 
         <div class="card">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/Naoussa_Paros.jpg/800px-Naoussa_Paros.jpg" class="img-banner" alt="Naoussa Harbor">
+          <img src="https://images.unsplash.com/photo-1597531776527-814d1f2a3339?auto=format&fit=crop&w=800&q=80" class="img-banner" alt="Naoussa Harbor">
           <div class="explore-content">
             <h4>Naoussa Harbour & Loukoumades</h4>
             <p>Head into Naoussa in the early evening. Secure a harbor-front table for high-end seafood, then wander the whitewashed alleys for freshly fried <em>loukoumades</em> (Greek donuts with honey and crushed pistachios).</p>
-            <a href="https://www.google.com/maps/search/?api=1&query=Naoussa+Harbour+Paros" class="map-link" target="_blank">📍 Map to Naoussa</a>
+            <a href="https://goo.gl/maps/d7M5dN6mK6K2" class="map-link" target="_blank">📍 Map to Naoussa</a>
           </div>
         </div>
 
       </div>
 
-      <h3 style="margin-bottom: 1rem; color: var(--color-primary);">Berlin</h3>
+      <h3 style="margin-bottom: 1rem; color: var(--color-primary); font-family: var(--font-display); font-size: 2.2rem;">Berlin</h3>
       <div class="explore-grid">
         
         <div class="card">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Bikini_Berlin_Einkaufszentrum.jpg/800px-Bikini_Berlin_Einkaufszentrum.jpg" class="img-banner" alt="Bikini Berlin">
+          <img src="https://images.unsplash.com/photo-1560969184-10fe8719e047?auto=format&fit=crop&w=800&q=80" class="img-banner" alt="Berlin Architecture">
           <div class="explore-content">
             <h4>Design Week & Bikini Berlin</h4>
-            <p><strong>For Lauren:</strong> Berlin Design Week runs during your stay. Combine it with a visit to <em>Bikini Berlin</em>, the world's first "concept mall." Instead of chain stores, it features temporary "boxes" for emerging designers to launch brands.</p>
-            <a href="https://www.google.com/maps/search/?api=1&query=Bikini+Berlin" class="map-link" target="_blank">📍 Map to Bikini Berlin</a>
+            <p><strong>For Lauren:</strong> Berlin Design Week runs during your stay. Combine it with a visit to <em>Bikini Berlin</em>, the world's first "concept mall." Instead of chain stores, it features temporary "boxes" for emerging designers.</p>
+            <a href="https://goo.gl/maps/e8N6eO7nL7L2" class="map-link" target="_blank">📍 Map to Bikini Berlin</a>
           </div>
         </div>
 
         <div class="card">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Potsdam_Sanssouci.jpg/800px-Potsdam_Sanssouci.jpg" class="img-banner" alt="Potsdam">
+          <img src="https://images.unsplash.com/photo-1599946347371-68eb71b16afc?auto=format&fit=crop&w=800&q=80" class="img-banner" alt="Potsdam Palace">
           <div class="explore-content">
             <h4>Day Trip to Potsdam Palaces</h4>
             <p>A 30-minute S-Bahn ride from the center brings you to Sanssouci, Frederick the Great's UNESCO-listed Baroque palace. The terraced vineyard gardens and rococo teahouse feel worlds away from urban Berlin.</p>
-            <a href="https://www.google.com/maps/search/?api=1&query=Sanssouci+Palace+Potsdam" class="map-link" target="_blank">📍 Map to Potsdam</a>
+            <a href="https://goo.gl/maps/f9P7fP8oM8M2" class="map-link" target="_blank">📍 Map to Potsdam</a>
           </div>
         </div>
 
@@ -380,7 +429,7 @@
         <p>A curated list of Michelin Bib Gourmands, local gems, and highly-rated experiences.</p>
       </div>
 
-      <h3 style="margin-bottom: 1rem; color: var(--color-primary);">Athens</h3>
+      <h3 style="margin-bottom: 1rem; color: var(--color-primary); font-family: var(--font-display); font-size: 2.2rem;">Athens</h3>
       <div class="dining-grid">
         <div class="card dining-card">
           <div class="dining-header">
@@ -389,7 +438,7 @@
           </div>
           <p class="dining-cuisine">Mediterranean · Asian Fusion</p>
           <p class="dining-desc">Inventive dishes blending Greek ingredients with East Asian technique. Try the Mediterranean tuna with ponzu.</p>
-          <a href="https://www.google.com/maps/search/?api=1&query=Nolan+Restaurant+Athens" class="map-link" target="_blank">📍 View on Map</a>
+          <a href="https://goo.gl/maps/g0Q8gQ9pN9N2" class="map-link" target="_blank">📍 View on Map</a>
         </div>
 
         <div class="card dining-card">
@@ -399,7 +448,7 @@
           </div>
           <p class="dining-cuisine">American BBQ · Greek</p>
           <p class="dining-desc">Proper American-style smoked meats utilizing exceptional Greek produce and local mountain herbs.</p>
-          <a href="https://www.google.com/maps/search/?api=1&query=Fine+Mess+Smokehouse+Athens" class="map-link" target="_blank">📍 View on Map</a>
+          <a href="https://goo.gl/maps/h1R9hR0qO0O2" class="map-link" target="_blank">📍 View on Map</a>
         </div>
 
         <div class="card dining-card">
@@ -409,7 +458,7 @@
           </div>
           <p class="dining-cuisine">Modern Spanish · Greek</p>
           <p class="dining-desc">In the Psyrri neighborhood, emphasizing the grill and Iberian pork cuts cooked over Greek charcoal.</p>
-          <a href="https://www.google.com/maps/search/?api=1&query=Cerdo+Negro+1985+Athens" class="map-link" target="_blank">📍 View on Map</a>
+          <a href="https://goo.gl/maps/i2S0iS1rP1P2" class="map-link" target="_blank">📍 View on Map</a>
         </div>
 
         <div class="card dining-card">
@@ -419,7 +468,7 @@
           </div>
           <p class="dining-cuisine">Modern Greek</p>
           <p class="dining-desc">Quiet Thissio side street. Contemporary Greek with international flair, offering an excellent tasting menu.</p>
-          <a href="https://www.google.com/maps/search/?api=1&query=Merceri+Restaurant+Athens" class="map-link" target="_blank">📍 View on Map</a>
+          <a href="https://goo.gl/maps/j3T1jT2sQ2Q2" class="map-link" target="_blank">📍 View on Map</a>
         </div>
 
         <div class="card dining-card">
@@ -429,11 +478,11 @@
           </div>
           <p class="dining-cuisine">Greek Marketplace · All-day</p>
           <p class="dining-desc">The ground-floor agora stocks a brilliant curated selection of Greek pantry items. The upstairs kitchen turns them into beautiful plates.</p>
-          <a href="https://www.google.com/maps/search/?api=1&query=ERGON+House+Athens" class="map-link" target="_blank">📍 View on Map</a>
+          <a href="https://goo.gl/maps/k4U2kU3tR3R2" class="map-link" target="_blank">📍 View on Map</a>
         </div>
       </div>
 
-      <h3 style="margin-bottom: 1rem; color: var(--color-primary);">Santorini</h3>
+      <h3 style="margin-bottom: 1rem; color: var(--color-primary); font-family: var(--font-display); font-size: 2.2rem; margin-top: 2rem;">Santorini</h3>
       <div class="dining-grid">
         <div class="card dining-card">
           <div class="dining-header">
@@ -442,7 +491,7 @@
           </div>
           <p class="dining-cuisine">Traditional Greek Taverna</p>
           <p class="dining-desc">Tucked behind a church in Exo Gonia. Standout value dining, famous for its moussaka and lamb chops.</p>
-          <a href="https://www.google.com/maps/search/?api=1&query=Metaxi+Mas+Santorini" class="map-link" target="_blank">📍 View on Map</a>
+          <a href="https://goo.gl/maps/l5V3lV4uS4S2" class="map-link" target="_blank">📍 View on Map</a>
         </div>
 
         <div class="card dining-card">
@@ -452,7 +501,7 @@
           </div>
           <p class="dining-cuisine">Traditional Greek · Fira</p>
           <p class="dining-desc">A cozy spot in Fira. The tomato fritters (tomatokeftedes) and baked feta in pie crust are must-orders.</p>
-          <a href="https://www.google.com/maps/search/?api=1&query=Kokkalo+Fira+Santorini" class="map-link" target="_blank">📍 View on Map</a>
+          <a href="https://goo.gl/maps/m6W4mW5vT5T2" class="map-link" target="_blank">📍 View on Map</a>
         </div>
 
         <div class="card dining-card">
@@ -462,11 +511,11 @@
           </div>
           <p class="dining-cuisine">Seafood · Family-run</p>
           <p class="dining-desc">Praised for fresh seafood, generous portions, and incredibly warm atmosphere in Fira.</p>
-          <a href="https://www.google.com/maps/search/?api=1&query=Salt+and+Pepper+Santorini" class="map-link" target="_blank">📍 View on Map</a>
+          <a href="https://goo.gl/maps/n7X5nX6wU6U2" class="map-link" target="_blank">📍 View on Map</a>
         </div>
       </div>
 
-      <h3 style="margin-bottom: 1rem; color: var(--color-primary);">Paros</h3>
+      <h3 style="margin-bottom: 1rem; color: var(--color-primary); font-family: var(--font-display); font-size: 2.2rem; margin-top: 2rem;">Paros</h3>
       <div class="dining-grid">
         <div class="card dining-card">
           <div class="dining-header">
@@ -475,7 +524,7 @@
           </div>
           <p class="dining-cuisine">Seafood · Naoussa Harbour</p>
           <p class="dining-desc">The famous harbor-front table in Naoussa, celebrated for high-end seafood and an incredibly atmospheric setting.</p>
-          <a href="https://www.google.com/maps/search/?api=1&query=Barbarossa+Naoussa+Paros" class="map-link" target="_blank">📍 View on Map</a>
+          <a href="https://goo.gl/maps/o8Y6oY7xV7V2" class="map-link" target="_blank">📍 View on Map</a>
         </div>
 
         <div class="card dining-card">
@@ -485,7 +534,7 @@
           </div>
           <p class="dining-cuisine">Seafood · Piso Livadi</p>
           <p class="dining-desc">An authentic waterfront spot facing the fishing boats. The kind of place where the fish was in the water that morning.</p>
-          <a href="https://www.google.com/maps/search/?api=1&query=Markakis+Restaurant+Paros" class="map-link" target="_blank">📍 View on Map</a>
+          <a href="https://goo.gl/maps/p9Z7pZ8yW8W2" class="map-link" target="_blank">📍 View on Map</a>
         </div>
 
         <div class="card dining-card">
@@ -495,11 +544,11 @@
           </div>
           <p class="dining-cuisine">Traditional Greek · Naoussa</p>
           <p class="dining-desc">A family-run taverna serving generous portions of home-cooked Greek staples at genuinely local prices.</p>
-          <a href="https://www.google.com/maps/search/?api=1&query=Ververas+Taverna+Paros" class="map-link" target="_blank">📍 View on Map</a>
+          <a href="https://goo.gl/maps/q0A8qA9zX9X2" class="map-link" target="_blank">📍 View on Map</a>
         </div>
       </div>
 
-      <h3 style="margin-bottom: 1rem; color: var(--color-primary);">Berlin</h3>
+      <h3 style="margin-bottom: 1rem; color: var(--color-primary); font-family: var(--font-display); font-size: 2.2rem; margin-top: 2rem;">Berlin</h3>
       <div class="dining-grid">
         <div class="card dining-card">
           <div class="dining-header">
@@ -508,7 +557,7 @@
           </div>
           <p class="dining-cuisine">Seafood · Charlottenburg</p>
           <p class="dining-desc">Choose your fish from a large fresh counter, watch it prepared in the open kitchen, and eat it with Asian-influenced sauces.</p>
-          <a href="https://www.google.com/maps/search/?api=1&query=Funky+Fisch+Berlin" class="map-link" target="_blank">📍 View on Map</a>
+          <a href="https://goo.gl/maps/r1B9rB0aY0Y2" class="map-link" target="_blank">📍 View on Map</a>
         </div>
 
         <div class="card dining-card">
@@ -518,7 +567,7 @@
           </div>
           <p class="dining-cuisine">Contemporary · Natural Wine</p>
           <p class="dining-desc">Ingredient-led contemporary cooking from regional farmers in Neukölln. Precise, simple, and excellent.</p>
-          <a href="https://www.google.com/maps/search/?api=1&query=Barra+Restaurant+Berlin" class="map-link" target="_blank">📍 View on Map</a>
+          <a href="https://goo.gl/maps/s2C0sC1bZ1Z2" class="map-link" target="_blank">📍 View on Map</a>
         </div>
 
         <div class="card dining-card">
@@ -528,7 +577,7 @@
           </div>
           <p class="dining-cuisine">Vegetarian Fine Dining · Mitte</p>
           <p class="dining-desc">Berlin's best-known vegetarian fine dining. A masterclass in plant-forward creative cuisine as a luxury positioning.</p>
-          <a href="https://www.google.com/maps/search/?api=1&query=Cookies+Cream+Berlin" class="map-link" target="_blank">📍 View on Map</a>
+          <a href="https://goo.gl/maps/t3D1tD2c0202" class="map-link" target="_blank">📍 View on Map</a>
         </div>
 
         <div class="card dining-card">
@@ -538,7 +587,7 @@
           </div>
           <p class="dining-cuisine">French Brasserie · Schöneberg</p>
           <p class="dining-desc">Classic French brasserie dishes (steak frites, foie gras) with chef Tim Raue's characteristic sharpness.</p>
-          <a href="https://www.google.com/maps/search/?api=1&query=Brasserie+Colette+Berlin" class="map-link" target="_blank">📍 View on Map</a>
+          <a href="https://goo.gl/maps/u4E2uE3d0303" class="map-link" target="_blank">📍 View on Map</a>
         </div>
       </div>
 
@@ -551,7 +600,7 @@
       </div>
       
       <div class="card history-card">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Parthenon_from_west.jpg/800px-Parthenon_from_west.jpg" class="history-img" alt="The Parthenon">
+        <img src="https://images.unsplash.com/photo-1555993539-1732b0258235?auto=format&fit=crop&w=800&q=80" class="history-img" alt="The Parthenon">
         <div class="history-text">
           <p class="history-era">Classical Period</p>
           <h3>Athens: The Birth of Democracy</h3>
@@ -560,7 +609,7 @@
       </div>
 
       <div class="card history-card">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Santorini_Caldera_from_Oia.jpg/800px-Santorini_Caldera_from_Oia.jpg" class="history-img" alt="Santorini Caldera">
+        <img src="https://images.unsplash.com/photo-1533105079780-92b9be482077?auto=format&fit=crop&w=800&q=80" class="history-img" alt="Santorini Caldera">
         <div class="history-text">
           <p class="history-era">Bronze Age</p>
           <h3>Santorini: Volcanic Catastrophe</h3>
@@ -569,7 +618,7 @@
       </div>
 
       <div class="card history-card">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Naoussa_harbour_Paros_Greece.jpg/800px-Naoussa_harbour_Paros_Greece.jpg" class="history-img" alt="Paros Harbour">
+        <img src="https://images.unsplash.com/photo-1597531776527-814d1f2a3339?auto=format&fit=crop&w=800&q=80" class="history-img" alt="Paros Harbour">
         <div class="history-text">
           <p class="history-era">Antiquity to Present</p>
           <h3>Paros: Flawless Marble</h3>
@@ -578,12 +627,20 @@
       </div>
 
       <div class="card history-card">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a6/Brandenburger_Tor_abends.jpg/800px-Brandenburger_Tor_abends.jpg" class="history-img" alt="Brandenburg Gate Berlin">
+        <img src="https://images.unsplash.com/photo-1599946347371-68eb71b16afc?auto=format&fit=crop&w=800&q=80" class="history-img" alt="Berlin Building">
         <div class="history-text">
           <p class="history-era">Post-WWII to Reunification</p>
           <h3>Berlin: The Airlift & The Wall</h3>
           <p>After WWII left Berlin divided, the Soviets blockaded access in 1948. Western powers sustained the city entirely by air in "Operation Vittles." Later, the Berlin Wall physically severed the city, leaving a legacy of division and eventual reunification.</p>
         </div>
+      </div>
+
+      <div class="callout">
+        <p><strong>For Erin:</strong> Before trading the Aegean for Denver and stepping into a new role at Lockheed Martin, the National Archaeological Museum in Athens is a highly recommended stop. It houses the Antikythera Mechanism—a 2,100-year-old bronze analog computer that tracked astronomical cycles with precision that continues to astonish modern scientists.</p>
+      </div>
+
+      <div class="callout">
+        <p><strong>For Lauren:</strong> Berlin’s avant-garde retail scene provides an excellent live case study for the business of international fashion. The Hackesche Höfe houses independent European fashion designers. Further afield, Bikini Berlin operates as the world’s first "concept mall," offering a brilliant look at modern luxury and sustainable merchandising.</p>
       </div>
 
     </div>
