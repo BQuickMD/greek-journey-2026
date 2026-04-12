@@ -16,6 +16,12 @@
         .active { display: block; animation: fadeIn 0.4s; }
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
         
+        /* Timeline specific styling */
+        .timeline-item { border-left: 3px solid #1abc9c; padding-left: 1.5rem; margin-bottom: 2rem; position: relative; }
+        .timeline-item::before { content: ''; position: absolute; left: -9px; top: 0; width: 15px; height: 15px; border-radius: 50%; background: #1abc9c; }
+        h3 { margin-top: 0; color: #2c3e50; }
+        .logistics-box { background: #f8f9fa; border: 1px solid #e9ecef; padding: 1rem; border-radius: 6px; margin-top: 0.5rem; font-size: 0.95rem; }
+        
         /* Interactive drop-downs for options */
         .interactive-option { border: 1px solid #e1e4e8; padding: 1rem; margin-bottom: 1rem; border-radius: 6px; background: #fafafa; }
         .interactive-option summary { font-weight: 600; cursor: pointer; font-size: 1.1rem; outline: none; }
@@ -27,7 +33,7 @@
 
     <header>
         <h1>Athens, Santorini, Paros & Berlin</h1>
-        <p>Late May Departure</p>
+        <p>Quick Family Journey - Late May 2026</p>
     </header>
 
     <nav>
@@ -39,11 +45,48 @@
     <div class="container">
         <div id="itinerary" class="tab-content active">
             <h2>Master Itinerary</h2>
-            <p>This section will hold the locked-in flights, ferry schedules, and apartment-style accommodation check-in details.</p>
-            <ul>
-                <li><strong>Day 1:</strong> Flight to Athens</li>
-                <li><strong>Day X:</strong> Ferry transition to the islands</li>
-            </ul>
+            <p>Here are the locked-in transit details, accommodations, and fixed tours for the trip.</p>
+            
+            <div class="timeline-item">
+                <h3>Athens Arrival & Acropolis</h3>
+                <p><strong>Activities:</strong> Visit to the Acropolis Museum on the afternoon of arrival, followed by a morning tour of the Acropolis the next day.</p>
+                <div class="logistics-box">
+                    <strong>Flight Info:</strong> [Missing: Inbound flight details to Athens] <br>
+                    <strong>Accommodation:</strong> [Missing: Athens apartment accommodation info]
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <h3>May 21 - 23: Santorini</h3>
+                <div class="logistics-box">
+                    <strong>Flight Info:</strong> May 21 via SKY express (Confirmation H3BWNM). Departs Athens (ATH) at 12:50, arrives in Santorini (JTR) at 13:45.<br>
+                    <strong>Accommodation:</strong> Homes & Villas by Marriott (Reservation #M1757869404766) from May 21 to May 23.
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <h3>May 23 - 28: Paros</h3>
+                <div class="logistics-box">
+                    <strong>Transit Info:</strong> Ferry transition from Santorini to Paros.<br>
+                    <strong>Car Rental:</strong> Avance Rent a Car. Pick up May 23 at 15:00 (Paros Downtown / Port). Drop off May 28 at 12:00 (Paros Airport).<br>
+                    <strong>Accommodation:</strong> [Missing: Paros apartment accommodation info]
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <h3>May 28 - 31: Berlin</h3>
+                <div class="logistics-box">
+                    <strong>Flight Info:</strong> May 28 via Olympic Air / Aegean Airlines (Booking 9V2HUS). Departs Paros at 14:15, arrives in Berlin at 19:45 (1 stop in Athens).<br>
+                    <strong>Accommodation:</strong> Adina Apartment Hotel Berlin Hackescher Markt (Confirmation: CI5QY3DU) from May 28 to May 31.
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <h3>May 31: Departure</h3>
+                <div class="logistics-box">
+                    <strong>Flight Info:</strong> May 31 via British Airways. Departs Berlin to San Francisco (SFO) via London Heathrow.
+                </div>
+            </div>
         </div>
 
         <div id="explore" class="tab-content">
@@ -61,7 +104,7 @@
 
         <div id="history" class="tab-content">
             <h2>Site Histories</h2>
-            <p>Deep dives into the ruins, architecture, and local culture. (We will pull summaries directly from your NotebookLM project to populate this section!)</p>
+            <p>Deep dives into the ruins, architecture, and local culture. (We will plug in your NotebookLM research here!)</p>
         </div>
     </div>
 
