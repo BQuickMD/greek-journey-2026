@@ -5,61 +5,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quick Family Journey - May 2026</title>
     <style>
-        /* Clean, minimalist aesthetic */
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; margin: 0; padding: 0; background-color: #f4f4f9; color: #333; }
-        header { background: #2c3e50; color: white; padding: 2rem 0; text-align: center; }
-        nav { display: flex; justify-content: center; background: #34495e; padding: 0.5rem; flex-wrap: wrap; }
-        nav button { background: none; border: none; color: white; padding: 0.75rem 1.5rem; cursor: pointer; font-size: 1rem; transition: background 0.3s; }
-        nav button:hover { background: #1abc9c; border-radius: 4px; }
+        /* Cycladic Aesthetic CSS */
+        body { font-family: 'Georgia', serif; line-height: 1.7; margin: 0; padding: 0; background-color: #fafafa; color: #4a4a4a; }
+        h1, h2, h3 { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-weight: 300; }
+        
+        header { 
+            background: linear-gradient(rgba(0, 48, 92, 0.8), rgba(0, 48, 92, 0.8)), url('http://googleusercontent.com/image_collection/image_retrieval/3929062185846161511_0') center/cover; 
+            color: white; 
+            padding: 4rem 1rem; 
+            text-align: center; 
+        }
+        header h1 { margin: 0; font-size: 2.5rem; letter-spacing: 2px; }
+        
+        nav { display: flex; justify-content: center; background: #ffffff; padding: 1rem; box-shadow: 0 2px 4px rgba(0,0,0,0.05); flex-wrap: wrap; position: sticky; top: 0; z-index: 100;}
+        nav button { background: none; border: none; color: #005a9c; padding: 0.75rem 1.5rem; cursor: pointer; font-size: 1rem; font-family: 'Helvetica Neue', sans-serif; letter-spacing: 1px; transition: color 0.3s; }
+        nav button:hover, nav button.active-btn { color: #d35400; font-weight: bold; }
+        
         .container { max-width: 800px; margin: 2rem auto; padding: 0 1rem; }
-        .tab-content { display: none; background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
-        .active { display: block; animation: fadeIn 0.4s; }
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .tab-content { display: none; background: white; padding: 2.5rem; border-radius: 4px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+        .active { display: block; animation: fadeIn 0.5s; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         
-        /* Timeline specific styling */
-        .timeline-item { border-left: 3px solid #1abc9c; padding-left: 1.5rem; margin-bottom: 2rem; position: relative; }
-        .timeline-item::before { content: ''; position: absolute; left: -9px; top: 0; width: 15px; height: 15px; border-radius: 50%; background: #1abc9c; }
-        h3 { margin-top: 0; color: #2c3e50; }
-        .logistics-box { background: #f8f9fa; border: 1px solid #e9ecef; padding: 1rem; border-radius: 6px; margin-top: 0.5rem; font-size: 0.95rem; }
+        .timeline-item { border-left: 2px solid #005a9c; padding-left: 1.5rem; margin-bottom: 2.5rem; position: relative; }
+        .timeline-item::before { content: ''; position: absolute; left: -6px; top: 5px; width: 10px; height: 10px; border-radius: 50%; background: #005a9c; }
+        h3 { margin-top: 0; color: #005a9c; }
+        .logistics-box { background: #fdfdfd; border: 1px solid #eaeaea; padding: 1rem; border-radius: 4px; margin-top: 0.5rem; font-size: 0.95rem; font-family: 'Helvetica Neue', sans-serif;}
         
-        /* Map Link Styling */
-        .map-link { display: inline-block; margin-top: 0.5rem; color: #3498db; text-decoration: none; font-weight: 500; font-size: 0.9rem; }
-        .map-link:hover { text-decoration: underline; color: #2980b9; }
+        .map-link { display: inline-block; margin-top: 0.5rem; color: #005a9c; text-decoration: none; font-weight: 500; font-size: 0.9rem; border-bottom: 1px solid transparent; transition: border 0.3s;}
+        .map-link:hover { border-bottom: 1px solid #005a9c; }
 
-        /* Interactive drop-downs for options */
-        .interactive-option { border: 1px solid #e1e4e8; padding: 1rem; margin-bottom: 1rem; border-radius: 6px; background: #fafafa; }
-        .interactive-option summary { font-weight: 600; cursor: pointer; font-size: 1.1rem; outline: none; }
-        .interactive-option summary:hover { color: #1abc9c; }
-        .option-details { margin-top: 1rem; padding-top: 1rem; border-top: 1px dashed #ccc; }
+        .interactive-option { border: 1px solid #eaeaea; padding: 1rem; margin-bottom: 1rem; border-radius: 4px; background: #ffffff; }
+        .interactive-option summary { font-weight: bold; cursor: pointer; font-size: 1.1rem; outline: none; color: #005a9c; font-family: 'Helvetica Neue', sans-serif;}
+        .interactive-option summary:hover { color: #d35400; }
+        .option-details { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #eaeaea; }
+        
+        .image-banner { width: 100%; height: 200px; object-fit: cover; border-radius: 4px; margin-bottom: 1rem; }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>Athens, Santorini, Paros & Berlin</h1>
-        <p>Quick Family Journey - Late May 2026</p>
+        <h1>Quick Family Journey</h1>
+        <p style="font-family: 'Helvetica Neue', sans-serif; font-size: 1.2rem;">Athens • Santorini • Paros • Berlin | May 2026</p>
     </header>
 
     <nav>
-        <button onclick="showTab('itinerary')">Fixed Logistics</button>
-        <button onclick="showTab('explore')">Optional Exploration</button>
-        <button onclick="showTab('history')">Historical Context</button>
+        <button id="btn-itinerary" class="active-btn" onclick="showTab('itinerary', this)">Fixed Logistics</button>
+        <button id="btn-explore" onclick="showTab('explore', this)">Optional Exploration</button>
+        <button id="btn-history" onclick="showTab('history', this)">Historical Context</button>
     </nav>
 
     <div class="container">
         <div id="itinerary" class="tab-content active">
             <h2>Master Itinerary</h2>
-            <p>Here are the locked-in transit details, accommodations, and fixed tours for the trip.</p>
             
             <div class="timeline-item">
                 <h3>May 18 - 21: Athens Arrival & Acropolis</h3>
+                <img src="http://googleusercontent.com/image_collection/image_retrieval/3929062185846161511_1" class="image-banner" alt="The Parthenon">
                 <p><strong>Activities:</strong> Visit to the Acropolis Museum on the afternoon of arrival (May 18), followed by a morning tour of the Acropolis the next day.</p>
                 <div class="logistics-box">
                     <strong>Flight Info:</strong> May 17 via United Airlines/Air Canada (Confirmation H3GYH1). Departs Boston (BOS) at 15:20, connects in Montreal (YUL), and arrives in Athens (ATH) at 10:05 AM on May 18. <br><br>
                     <strong>Accommodation:</strong> MyGreekVacations from May 18 to May 21. <br>
                     📍 Mirmidonon 20, Athina 118 51, Greece <br>
-                    <a href="https://www.google.com/maps/search/?api=1&query=Mirmidonon+20,+Athina+118+51,+Greece" class="map-link" target="_blank">🗺️ View Lodging on Map</a> | 
-                    <a href="https://www.google.com/maps/search/?api=1&query=Acropolis+Museum+Athens" class="map-link" target="_blank">🗺️ Map to Acropolis Museum</a>
+                    <a href="https://www.google.com/maps/search/?api=1&query=Mirmidonon+20,+Athina+118+51,+Greece" class="map-link" target="_blank">🗺️ View Lodging on Map</a>
                 </div>
             </div>
 
@@ -75,6 +83,7 @@
 
             <div class="timeline-item">
                 <h3>May 23 - 28: Paros</h3>
+                <img src="http://googleusercontent.com/image_collection/image_retrieval/3929062185846161511_2" class="image-banner" alt="Naoussa Harbor Paros">
                 <div class="logistics-box">
                     <strong>Transit Info:</strong> Ferry transition from Santorini to Paros.<br><br>
                     <strong>Car Rental:</strong> Avance Rent a Car. Pick up May 23 at 15:00 (Paros Downtown / Port). Drop off May 28 at 12:00 (Paros Airport).<br><br>
@@ -86,6 +95,7 @@
 
             <div class="timeline-item">
                 <h3>May 28 - 31: Berlin</h3>
+                <img src="http://googleusercontent.com/image_collection/image_retrieval/3929062185846161511_3" class="image-banner" alt="Hackescher Markt Berlin">
                 <div class="logistics-box">
                     <strong>Flight Info:</strong> May 28 via Olympic Air / Aegean Airlines (Booking 9V2HUS). Departs Paros at 14:15, arrives in Berlin at 19:45 (1 stop in Athens).<br><br>
                     <strong>Accommodation:</strong> Adina Apartment Hotel Berlin Hackescher Markt (Confirmation: CI5QY3DU) from May 28 to May 31. <br>
@@ -103,31 +113,72 @@
 
         <div id="explore" class="tab-content">
             <h2>Choose Your Own Adventure</h2>
-            <p>Open blocks for Jennifer, Erin, and Lauren to explore, shop, or relax.</p>
+            <p>Options for the family to split up, explore, or tackle different paces.</p>
             
             <details class="interactive-option">
-                <summary>Afternoon in Santorini: Hike or Relax?</summary>
+                <summary>Athens Evening: Cocktails or Tapas?</summary>
                 <div class="option-details">
-                    <p><strong>Option A:</strong> A high-intensity hike along the caldera trail from Fira to Oia. Unbeatable views and a great workout.</p>
-                    <a href="https://www.google.com/maps/search/?api=1&query=Fira+to+Oia+Hike,+Santorini" class="map-link" target="_blank">🗺️ Trail Route on Map</a>
-                    
-                    <p style="margin-top: 1rem;"><strong>Option B:</strong> Settle in at a Mediterranean tapas bar overlooking the water for midday salads and downtime.</p>
-                    <a href="https://www.google.com/maps/search/?api=1&query=Tapas+Restaurants+Oia+Santorini" class="map-link" target="_blank">🗺️ Find Nearby Restaurants</a>
+                    <p><strong>Option A:</strong> Head toward Monastiraki for rooftop views of the illuminated Acropolis. Great for a pre-dinner cocktail.</p>
+
+http://googleusercontent.com/map_location_reference/1
+                    <p><strong>Option B:</strong> If we are craving familiar flavors with a Mediterranean twist, [BARΘELONA TAPAS BAR ATHENS](http://googleusercontent.com/map_location_reference/0) is a highly-rated spot relatively close to our apartment for Spanish-style small plates and excellent salads.</p>
+                </div>
+            </details>
+
+            <details class="interactive-option">
+                <summary>Santorini Afternoon: Caldera Hike vs. Village Wandering</summary>
+                <div class="option-details">
+                    <p><strong>Option A (High Intensity):</strong> The famous hike from Fira to Oia. It's a challenging, undulating trail along the caldera rim that provides an incredible workout and the best photos on the island.</p>
+                    <p><strong>Option B (Low Key):</strong> Erin and Lauren can explore the boutique shops and winding alleys of Oia, grabbing a coffee while dodging the crowds.</p>
+                </div>
+            </details>
+            
+            <details class="interactive-option">
+                <summary>Paros: The Byzantine Road</summary>
+                <div class="option-details">
+
+http://googleusercontent.com/map_location_reference/3
+                    <p>We have a car on Paros, opening up the interior. We can drive to the ancient village of Lefkes. From there, we can tackle the [Byzantine Road](http://googleusercontent.com/map_location_reference/2)—a paved trail dating back over 1,000 years that winds down to the village of Prodromos. It's a fantastic, steady hike.</p>
+                </div>
+            </details>
+
+            <details class="interactive-option">
+                <summary>Berlin: Hackescher Markt</summary>
+                <div class="option-details">
+                    <p>Our hotel is right in the heart of Hackescher Markt. This area is famous for its interconnected courtyards (Höfe) filled with independent designers, international fashion boutiques, and street art—perfect for exploring marketing trends and local style right outside our door.</p>
                 </div>
             </details>
         </div>
 
         <div id="history" class="tab-content">
             <h2>Site Histories</h2>
-            <p>Deep dives into the ruins, architecture, and local culture. (We will plug in your NotebookLM research here!)</p>
+            
+            <div class="timeline-item">
+                <h3>The Acropolis & Parthenon</h3>
+                <p>Rising above Athens, the Acropolis was the ancient city's religious center and fortress. The crown jewel, the Parthenon, was completed in 438 BC at the height of the Athenian Empire. Dedicated to Athena, the patron goddess of the city, it is considered the pinnacle of Doric architecture. Interestingly, it has served as a Greek temple, a Christian church, and an Islamic mosque throughout its history.</p>
+            </div>
+
+            <div class="timeline-item">
+                <h3>The Santorini Caldera</h3>
+                <p>The crescent shape of Santorini is the result of one of the largest volcanic eruptions in recorded history—the Minoan eruption (around 1600 BC). The center of the island collapsed into the sea, creating the submerged caldera we see today. Many historians believe this cataclysmic event inspired the legend of the lost city of Atlantis.</p>
+            </div>
+
+            <div class="timeline-item">
+                <h3>Parian Marble</h3>
+                <p>While Paros is now famous for its beaches and villages like Naoussa, in antiquity, its primary export was stone. "Parian marble" was highly prized by ancient Greek sculptors for its flawless white, semi-transparent quality. Masterpieces like the Venus de Milo and the Winged Victory of Samothrace were carved from marble quarried on this very island.</p>
+            </div>
         </div>
     </div>
 
     <script>
-        function showTab(tabId) {
+        function showTab(tabId, btn) {
             const tabs = document.querySelectorAll('.tab-content');
             tabs.forEach(tab => tab.classList.remove('active'));
             document.getElementById(tabId).classList.add('active');
+            
+            const btns = document.querySelectorAll('nav button');
+            btns.forEach(b => b.classList.remove('active-btn'));
+            btn.classList.add('active-btn');
         }
     </script>
 
