@@ -121,7 +121,7 @@
     .card { background: var(--color-surface); border: 1px solid var(--color-border); border-radius: var(--radius-lg); overflow: hidden; margin-bottom: 1.5rem; box-shadow: var(--shadow-sm); transition: transform 0.3s ease, box-shadow 0.3s ease; }
     .card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
 
-    .map-link { display: inline-flex; align-items: center; gap: 6px; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #1a73e8; background: #e8f0fe; padding: 8px 14px; border-radius: 99px; margin-top: 0.75rem; transition: background 0.2s, color 0.2s; text-decoration: none; }
+    .map-link { display: inline-flex; align-items: center; gap: 6px; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #1a73e8; background: #e8f0fe; padding: 8px 14px; border-radius: 99px; margin-top: 0.75rem; transition: background 0.2s, color 0.2s; text-decoration: none; font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', 'Work Sans', 'Helvetica Neue', sans-serif; }
     .map-link:hover { background: #1a73e8; color: #ffffff; }
 
     /* ============================================================
@@ -132,7 +132,7 @@
     .timeline-item h3 { font-family: var(--font-display); font-size: 2rem; margin-bottom: 1.5rem; color: var(--color-primary); }
     .logistics-row { display: flex; gap: 1rem; padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--color-divider); }
     .logistics-row:last-child { border-bottom: none; }
-    .logistics-icon { font-size: 1.5rem; flex-shrink: 0; }
+    .logistics-icon { font-size: 1.5rem; flex-shrink: 0; font-family: 'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji', sans-serif; }
     .logistics-label { font-size: 0.75rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-text-muted); margin-bottom: 0.25rem; }
 
     /* ============================================================
@@ -275,7 +275,7 @@
             <span class="logistics-icon">üèõÔ∏è</span>
             <div>
               <p class="logistics-label">Ticketed Activities</p>
-              <p><strong>May 18 afternoon</strong> ‚Äî Acropolis Museum<br><strong>May 19 morning</strong> ‚Äî Acropolis hill at opening</p>
+              <p><strong>May 18 afternoon</strong> ‚Äî Acropolis Museum<br><strong>May 19 at 7:45 am</strong> ‚Äî Acropolis hill at opening</p>
               <a href="https://www.google.com/maps/search/?api=1&query=Acropolis+Museum+Athens" class="map-link" target="_blank">üìç View Acropolis on Map</a>
             </div>
           </div>
@@ -448,6 +448,17 @@
               </div>
             </div>
 
+            <div class="card">
+              <img
+                data-src="https://images.unsplash.com/photo-1532277801815-2f1788060bbc?auto=format&fit=crop&w=800&q=80"
+                class="img-banner" alt="Ancient Greek marble statue National Archaeological Museum Athens">
+              <div class="explore-content">
+                <h4>National Archaeological Museum</h4>
+                <p><strong>For Erin:</strong> Before trading the Aegean for Denver, this is an unmissable stop. The world's greatest collection of ancient Greek art ‚Äî and home to the Antikythera Mechanism, a 2,100-year-old bronze analog computer that tracked astronomical cycles with a precision that continues to astonish modern scientists.</p>
+                <a href="https://www.google.com/maps/search/?api=1&query=National+Archaeological+Museum+Athens" class="map-link" target="_blank">üìç Map to Museum</a>
+              </div>
+            </div>
+
           </div>
         </div>
       </details>
@@ -594,8 +605,8 @@
 
             <div class="card">
               <img
-                data-src="https://images.unsplash.com/photo-1566207462754-97c86c31db3d?auto=format&fit=crop&w=800&q=80"
-                class="img-banner" alt="Berlin Wall Memorial Bernauer Strasse">
+                data-src="https://images.unsplash.com/photo-1664820489719-6aaaf22c1059?auto=format&fit=crop&w=800&q=80"
+                class="img-banner" alt="Berlin Wall East Side Gallery murals">
               <div class="explore-content">
                 <h4>Berlin Wall Memorial</h4>
                 <p>The Gedenkst√§tte Berliner Mauer on Bernauer Strasse preserves a full original section of the Wall with a watchtower, death strip, and escape tunnels documented in haunting detail.</p>
