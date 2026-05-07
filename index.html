@@ -84,7 +84,7 @@
       color: var(--color-primary); 
       background: #ffffff; 
       padding: 12px 24px; 
-      border-radius: 50px; /* Makes it a perfect oval */
+      border-radius: 50px; 
       display: inline-flex; 
       align-items: center; 
       gap: 8px; 
@@ -137,13 +137,26 @@
     .logistics-label { font-size: 0.75rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--color-text-muted); margin-bottom: 0.25rem; }
 
     /* ============================================================
-       EXPLORE & DINING
+       EXPLORE (Area Accordions)
     =========================================================== */
-    .explore-grid { display: grid; gap: 2rem; }
+    .area-accordion { margin-bottom: 2rem; border-bottom: 1px solid var(--color-divider); padding-bottom: 1rem; }
+    .area-accordion:last-child { border-bottom: none; }
+    .area-summary { display: flex; align-items: center; justify-content: space-between; cursor: pointer; list-style: none; padding-block: 0.5rem; outline: none; }
+    .area-summary::-webkit-details-marker { display: none; }
+    .area-title { font-family: var(--font-display); font-size: 2.2rem; color: var(--color-primary); margin: 0; }
+    .area-chevron { color: var(--color-primary); transition: transform var(--transition); display: flex; align-items: center; justify-content: center; width: 40px; height: 40px; border-radius: 50%; background: var(--color-surface-2); }
+    .area-accordion[open] .area-chevron { transform: rotate(180deg); background: var(--color-primary-subtle); }
+    .area-content { padding-top: 2rem; }
+
+    .explore-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 2rem; }
     .img-banner { width: 100%; height: 240px; border-bottom: 1px solid var(--color-border); }
     .explore-content { padding: 1.5rem; }
     .explore-content h4 { font-family: var(--font-display); font-size: 1.6rem; font-weight: 600; color: var(--color-primary); margin-bottom: 0.5rem; }
+    .explore-content p { font-size: 0.95rem; margin-bottom: 0.5rem; color: var(--color-text-muted); }
     
+    /* ============================================================
+       DINING
+    =========================================================== */
     .dining-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; margin-bottom: 3rem; }
     .dining-card { padding: 1.5rem; display: flex; flex-direction: column; }
     .dining-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.5rem; }
@@ -223,7 +236,7 @@
             <span class="logistics-icon">✈️</span>
             <div>
               <p class="logistics-label">Outbound Flight</p>
-              <p><strong>May 17</strong> — United/Air Canada (Conf. <strong>H3GYH1</strong>)<br>BOS 15:20 → YUL → ATH. Arrives <strong>May 18 at 10:05</strong></p>
+              <p><strong>May 17</strong> — DL 240<br>Arrives in Athens (ATH) <strong>May 18</strong></p>
             </div>
           </div>
           <div class="logistics-row">
@@ -337,100 +350,221 @@
     <div id="explore" class="tab-panel">
       <div class="panel-header">
         <h2>Choose Your Own Adventure</h2>
-        <p>Options to split the family, match different energy levels, or fill free afternoons.</p>
+        <p>Options to split the family, match different energy levels, or fill free afternoons. Expand a region below to see all curated points of interest.</p>
       </div>
 
-      <h3 style="margin-bottom: 1rem; color: var(--color-primary); font-family: var(--font-display); font-size: 2.2rem;">Athens</h3>
-      <div class="explore-grid" style="margin-bottom: 4rem;">
-        
-        <div class="card">
-          <img src="https://images.unsplash.com/photo-1555993539-1732b0258235?auto=format&fit=crop&w=800&q=80" class="img-banner" alt="Ancient Ruins">
-          <div class="explore-content">
-            <h4>The Antikythera Mechanism</h4>
-            <p><strong>For Erin:</strong> Visit the National Archaeological Museum to see the world's first analog computer. Used to predict astronomical positions with terrifying precision, it is a masterclass in ancient mechanical engineering.</p>
-            <a href="https://www.google.com/maps/search/?api=1&query=National+Archaeological+Museum+Athens" class="map-link" target="_blank">📍 Map to Museum</a>
+      <!-- ATHENS ACCORDION -->
+      <details class="area-accordion" open>
+        <summary class="area-summary">
+          <h3 class="area-title">Athens</h3>
+          <div class="area-chevron">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+        </summary>
+        <div class="area-content">
+          <div class="explore-grid">
+            
+            <div class="card">
+              <img src="https://images.unsplash.com/photo-1555993539-1732b0258235?auto=format&fit=crop&w=800&q=80" class="img-banner" alt="Museum Artifacts">
+              <div class="explore-content">
+                <h4>The Antikythera Mechanism</h4>
+                <p><strong>For Erin:</strong> Visit the National Archaeological Museum to see the world's first analog computer. Used to predict astronomical positions with terrifying precision, it is a masterclass in ancient mechanical engineering.</p>
+                <a href="https://www.google.com/maps/search/?api=1&query=National+Archaeological+Museum+Athens" class="map-link" target="_blank">📍 Map to Museum</a>
+              </div>
+            </div>
+
+            <div class="card">
+              <img src="https://images.unsplash.com/photo-1603565816030-6b389eeb23cb?auto=format&fit=crop&w=800&q=80" class="img-banner" alt="Athens Streets">
+              <div class="explore-content">
+                <h4>Voukourestiou Street</h4>
+                <p><strong>For Lauren:</strong> Wander down Voukourestiou Street, Athens' high-end retail artery. Pop into flagship stores for Greek luxury brands like <em>Zeus+Dione</em> to see how heritage styling is marketed globally.</p>
+                <a href="https://www.google.com/maps/search/?api=1&query=Voukourestiou+Street+Athens" class="map-link" target="_blank">📍 Map to Voukourestiou St</a>
+              </div>
+            </div>
+
+            <div class="card">
+              <img src="https://images.unsplash.com/photo-1599576856514-c1f0d36c2e74?auto=format&fit=crop&w=800&q=80" class="img-banner" alt="Ancient Agora">
+              <div class="explore-content">
+                <h4>The Ancient Agora</h4>
+                <p>The beating heart of classical Athens. Walk the reconstructed Stoa of Attalos, view the well-preserved Temple of Hephaestus, and see the ancient voting shards (ostraca) used in early democracy.</p>
+                <a href="https://www.google.com/maps/search/?api=1&query=Ancient+Agora+of+Athens" class="map-link" target="_blank">📍 Map to Ancient Agora</a>
+              </div>
+            </div>
+
+            <div class="card">
+              <img src="https://images.unsplash.com/photo-1533900298318-6b8da08a523e?auto=format&fit=crop&w=800&q=80" class="img-banner" alt="Athens Market">
+              <div class="explore-content">
+                <h4>Central Municipal Market</h4>
+                <p>An intense, authentic slice of local life. The Varvakios Agora is the largest food market in Athens, surrounded by spice shops. Perfect to combine with a walk down the commercial hub of Ermou Street.</p>
+                <a href="https://www.google.com/maps/search/?api=1&query=Varvakios+Central+Municipal+Market+Athens" class="map-link" target="_blank">📍 Map to Market</a>
+              </div>
+            </div>
+
+            <div class="card">
+              <img src="https://images.unsplash.com/photo-1598463990815-5853503db458?auto=format&fit=crop&w=800&q=80" class="img-banner" alt="Plaka Neighborhood">
+              <div class="explore-content">
+                <h4>Plaka & Syntagma Square</h4>
+                <p>Wander the oldest continuously inhabited neighborhood in Athens (Plaka) before heading to Syntagma Square to witness the changing of the guard at the Monument of the Unknown Soldier.</p>
+                <a href="https://www.google.com/maps/search/?api=1&query=Syntagma+Square+Athens" class="map-link" target="_blank">📍 Map to Syntagma</a>
+              </div>
+            </div>
+
           </div>
         </div>
+      </details>
 
-        <div class="card">
-          <img src="https://images.unsplash.com/photo-1603565816030-6b389eeb23cb?auto=format&fit=crop&w=800&q=80" class="img-banner" alt="Athens Streets">
-          <div class="explore-content">
-            <h4>Voukourestiou Street & Greek Luxury</h4>
-            <p><strong>For Lauren:</strong> Wander down Voukourestiou Street, Athens' high-end retail artery. Pop into flagship stores for Greek luxury brands like <em>Zeus+Dione</em> to see how heritage styling is marketed globally.</p>
-            <a href="https://www.google.com/maps/search/?api=1&query=Voukourestiou+Street+Athens" class="map-link" target="_blank">📍 Map to Voukourestiou St</a>
+      <!-- SANTORINI ACCORDION -->
+      <details class="area-accordion">
+        <summary class="area-summary">
+          <h3 class="area-title">Santorini</h3>
+          <div class="area-chevron">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+        </summary>
+        <div class="area-content">
+          <div class="explore-grid">
+            
+            <div class="card">
+              <img src="https://images.unsplash.com/photo-1613395877344-13d4a8e0d49e?auto=format&fit=crop&w=800&q=80" class="img-banner" alt="Santorini View">
+              <div class="explore-content">
+                <h4>Skaros Rock & Ancient Thera</h4>
+                <p>Hike out to the medieval ruins of Skaros Rock on the caldera rim, or drive up to Ancient Thera—a mountaintop city perched at 360m. The ancient walls survive because they brilliantly utilize the natural basalt contours.</p>
+                <a href="https://www.google.com/maps/search/?api=1&query=Skaros+Rock+Santorini" class="map-link" target="_blank">📍 Map to Skaros Rock</a>
+              </div>
+            </div>
+
+            <div class="card">
+              <img src="https://images.unsplash.com/photo-1628108420556-91e81fc6a760?auto=format&fit=crop&w=800&q=80" class="img-banner" alt="Akrotiri Excavation">
+              <div class="explore-content">
+                <h4>Prehistoric Akrotiri</h4>
+                <p>Often tied to the myth of Atlantis, this remarkably preserved Minoan Bronze Age settlement was buried by the volcanic eruption in 1600 BC. An absolute must-visit archaeological site.</p>
+                <a href="https://www.google.com/maps/search/?api=1&query=Akrotiri+Archaeological+Site+Santorini" class="map-link" target="_blank">📍 Map to Akrotiri</a>
+              </div>
+            </div>
+
+            <div class="card">
+              <img src="https://images.unsplash.com/photo-1662002388057-e6f998463a8a?auto=format&fit=crop&w=800&q=80" class="img-banner" alt="Oia Castle">
+              <div class="explore-content">
+                <h4>The Santorini Kastelia</h4>
+                <p>Discover the island's medieval past through its 5 historic castles, including the highly popular Castle of Agios Nikolaos in Oia (perfect for sunsets), the Castle of Akrotiri, and Pyrgos Castle.</p>
+                <a href="https://www.google.com/maps/search/?api=1&query=Oia+Castle+Santorini" class="map-link" target="_blank">📍 Map to Oia Castle</a>
+              </div>
+            </div>
+
+            <div class="card">
+              <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=800&q=80" class="img-banner" alt="Open Air Cinema Santorini">
+              <div class="explore-content">
+                <h4>Kamari Open-Air Cinema</h4>
+                <p>Escape the caldera crowds. After a quiet dinner in Exo Gonia, take a short drive down the hill to Kamari's famous open-air cinema for a late-night film under the stars with a cocktail.</p>
+                <a href="https://www.google.com/maps/search/?api=1&query=Open+Air+Cinema+Kamari+Santorini" class="map-link" target="_blank">📍 Map to Cinema</a>
+              </div>
+            </div>
+
           </div>
         </div>
+      </details>
 
-      </div>
+      <!-- PAROS ACCORDION -->
+      <details class="area-accordion">
+        <summary class="area-summary">
+          <h3 class="area-title">Paros</h3>
+          <div class="area-chevron">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+        </summary>
+        <div class="area-content">
+          <div class="explore-grid">
+            
+            <div class="card">
+              <img src="https://images.unsplash.com/photo-1595085601289-4081c7e2a900?auto=format&fit=crop&w=800&q=80" class="img-banner" alt="Panagia Ekatontapiliani">
+              <div class="explore-content">
+                <h4>Church of 100 Doors</h4>
+                <p>Panagia Ekatontapiliani in Parikia is one of the most important Byzantine monuments in Greece. Legend says it has 99 visible doors, and a secret 100th door that will open only when Constantinople returns to Greek hands.</p>
+                <a href="https://www.google.com/maps/search/?api=1&query=Panagia+Ekatontapiliani+Paros" class="map-link" target="_blank">📍 Map to Church</a>
+              </div>
+            </div>
 
-      <h3 style="margin-bottom: 1rem; color: var(--color-primary); font-family: var(--font-display); font-size: 2.2rem;">Santorini</h3>
-      <div class="explore-grid" style="margin-bottom: 4rem;">
-        
-        <div class="card">
-          <img src="https://images.unsplash.com/photo-1613395877344-13d4a8e0d49e?auto=format&fit=crop&w=800&q=80" class="img-banner" alt="Santorini View">
-          <div class="explore-content">
-            <h4>Skaros Rock & Ancient Thera</h4>
-            <p>Hike out to the medieval Venetian ruins of Skaros Rock on the caldera rim, or drive up to Ancient Thera—a mountaintop city perched at 360m. The ancient walls survive because they brilliantly utilize the natural basalt contours.</p>
-            <a href="https://www.google.com/maps/search/?api=1&query=Skaros+Rock+Santorini" class="map-link" target="_blank">📍 Map to Skaros Rock</a>
+            <div class="card">
+              <img src="https://images.unsplash.com/photo-1544833058-e70f660f4e74?auto=format&fit=crop&w=800&q=80" class="img-banner" alt="Marble Ruins">
+              <div class="explore-content">
+                <h4>Marathi Marble Quarries</h4>
+                <p>In antiquity, Paros produced the flawless "Parian lithos" marble used to carve the Venus de Milo. You can visit the impressive, ancient underground quarry tunnels at Marathi.</p>
+                <a href="https://www.google.com/maps/search/?api=1&query=Ancient+Marble+Quarries+Marathi+Paros" class="map-link" target="_blank">📍 Map to Quarries</a>
+              </div>
+            </div>
+
+            <div class="card">
+              <img src="https://images.unsplash.com/photo-1530841377377-3ff06c0ca713?auto=format&fit=crop&w=800&q=80" class="img-banner" alt="Greek Island Village">
+              <div class="explore-content">
+                <h4>Lefkes & the Byzantine Road</h4>
+                <p>Drive to the mountain village of Lefkes and hike the 1,000-year-old marble-paved Byzantine Road down through olive groves to Prodromos. The ancient engineering is still entirely functional.</p>
+                <a href="https://www.google.com/maps/search/?api=1&query=Lefkes+Village+Paros" class="map-link" target="_blank">📍 Map to Trailhead</a>
+              </div>
+            </div>
+
+            <div class="card">
+              <img src="https://images.unsplash.com/photo-1605153322277-dd0d7f608b4d?auto=format&fit=crop&w=800&q=80" class="img-banner" alt="Naoussa Harbor">
+              <div class="explore-content">
+                <h4>Naoussa Harbour & Loukoumades</h4>
+                <p>Head into Naoussa in the early evening. Secure a harbor-front table for high-end seafood, then wander the whitewashed alleys for freshly fried <em>loukoumades</em> (Greek donuts with honey and crushed pistachios).</p>
+                <a href="https://www.google.com/maps/search/?api=1&query=Naoussa+Harbour+Paros" class="map-link" target="_blank">📍 Map to Naoussa</a>
+              </div>
+            </div>
+
           </div>
         </div>
+      </details>
 
-        <div class="card">
-          <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=800&q=80" class="img-banner" alt="Open Air Cinema Santorini">
-          <div class="explore-content">
-            <h4>Kamari Open-Air Cinema</h4>
-            <p>Escape the caldera crowds. After a quiet dinner in Exo Gonia, take a short drive down the hill to Kamari's famous open-air cinema for a late-night film under the stars with a cocktail.</p>
-            <a href="https://www.google.com/maps/search/?api=1&query=Open+Air+Cinema+Kamari+Santorini" class="map-link" target="_blank">📍 Map to Cinema</a>
+      <!-- BERLIN ACCORDION -->
+      <details class="area-accordion">
+        <summary class="area-summary">
+          <h3 class="area-title">Berlin</h3>
+          <div class="area-chevron">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </div>
+        </summary>
+        <div class="area-content">
+          <div class="explore-grid">
+            
+            <div class="card">
+              <img src="https://images.unsplash.com/photo-1560969184-10fe8719e047?auto=format&fit=crop&w=800&q=80" class="img-banner" alt="Berlin Architecture">
+              <div class="explore-content">
+                <h4>Design Week & Bikini Berlin</h4>
+                <p><strong>For Lauren:</strong> Berlin Design Week runs during your stay. Combine it with a visit to <em>Bikini Berlin</em>, the world's first "concept mall." Instead of chain stores, it features temporary "boxes" for emerging designers.</p>
+                <a href="https://www.google.com/maps/search/?api=1&query=Bikini+Berlin" class="map-link" target="_blank">📍 Map to Bikini Berlin</a>
+              </div>
+            </div>
+
+            <div class="card">
+              <img src="https://images.unsplash.com/photo-1601614769018-87440409a807?auto=format&fit=crop&w=800&q=80" class="img-banner" alt="Berlin Wall">
+              <div class="explore-content">
+                <h4>Berlin Wall Memorial</h4>
+                <p>The Gedenkstätte Berliner Mauer on Bernauer Strasse preserves a full original section of the Wall with a watchtower, death strip, and escape tunnels documented in haunting detail.</p>
+                <a href="https://www.google.com/maps/search/?api=1&query=Berlin+Wall+Memorial+Bernauer+Strasse" class="map-link" target="_blank">📍 Map to Memorial</a>
+              </div>
+            </div>
+
+            <div class="card">
+              <img src="https://images.unsplash.com/photo-1598583495400-0255b1695de9?auto=format&fit=crop&w=800&q=80" class="img-banner" alt="Berlin Park">
+              <div class="explore-content">
+                <h4>Nature Park Schöneberger</h4>
+                <p>A true hidden gem in "Weird Berlin". This park merges wild nature, thought-provoking modern art, and remnants of the city's railway history into a uniquely inspiring atmosphere.</p>
+                <a href="https://www.google.com/maps/search/?api=1&query=Nature+Park+Schöneberger+Südgelände+Berlin" class="map-link" target="_blank">📍 Map to Park</a>
+              </div>
+            </div>
+
+            <div class="card">
+              <img src="https://images.unsplash.com/photo-1599946347371-68eb71b16afc?auto=format&fit=crop&w=800&q=80" class="img-banner" alt="Potsdam Palace">
+              <div class="explore-content">
+                <h4>Day Trip to Potsdam Palaces</h4>
+                <p>A 30-minute S-Bahn ride from the center brings you to Sanssouci, Frederick the Great's UNESCO-listed Baroque palace. The terraced vineyard gardens and rococo teahouse feel worlds away from urban Berlin.</p>
+                <a href="https://www.google.com/maps/search/?api=1&query=Sanssouci+Palace+Potsdam" class="map-link" target="_blank">📍 Map to Potsdam</a>
+              </div>
+            </div>
+
           </div>
         </div>
-
-      </div>
-
-      <h3 style="margin-bottom: 1rem; color: var(--color-primary); font-family: var(--font-display); font-size: 2.2rem;">Paros</h3>
-      <div class="explore-grid" style="margin-bottom: 4rem;">
-        
-        <div class="card">
-          <img src="https://images.unsplash.com/photo-1530841377377-3ff06c0ca713?auto=format&fit=crop&w=800&q=80" class="img-banner" alt="Greek Island Village">
-          <div class="explore-content">
-            <h4>Lefkes & the Byzantine Road</h4>
-            <p>Drive to the mountain village of Lefkes and hike the 1,000-year-old marble-paved Byzantine Road down through olive groves to Prodromos. The ancient engineering is still entirely functional.</p>
-            <a href="https://www.google.com/maps/search/?api=1&query=Lefkes+Village+Paros" class="map-link" target="_blank">📍 Map to Trailhead</a>
-          </div>
-        </div>
-
-        <div class="card">
-          <img src="https://images.unsplash.com/photo-1605153322277-dd0d7f608b4d?auto=format&fit=crop&w=800&q=80" class="img-banner" alt="Naoussa Harbor">
-          <div class="explore-content">
-            <h4>Naoussa Harbour & Loukoumades</h4>
-            <p>Head into Naoussa in the early evening. Secure a harbor-front table for high-end seafood, then wander the whitewashed alleys for freshly fried <em>loukoumades</em> (Greek donuts with honey and crushed pistachios).</p>
-            <a href="https://www.google.com/maps/search/?api=1&query=Naoussa+Harbour+Paros" class="map-link" target="_blank">📍 Map to Naoussa</a>
-          </div>
-        </div>
-
-      </div>
-
-      <h3 style="margin-bottom: 1rem; color: var(--color-primary); font-family: var(--font-display); font-size: 2.2rem;">Berlin</h3>
-      <div class="explore-grid">
-        
-        <div class="card">
-          <img src="https://images.unsplash.com/photo-1560969184-10fe8719e047?auto=format&fit=crop&w=800&q=80" class="img-banner" alt="Berlin Architecture">
-          <div class="explore-content">
-            <h4>Design Week & Bikini Berlin</h4>
-            <p><strong>For Lauren:</strong> Berlin Design Week runs during your stay. Combine it with a visit to <em>Bikini Berlin</em>, the world's first "concept mall." Instead of chain stores, it features temporary "boxes" for emerging designers.</p>
-            <a href="https://www.google.com/maps/search/?api=1&query=Bikini+Berlin" class="map-link" target="_blank">📍 Map to Bikini Berlin</a>
-          </div>
-        </div>
-
-        <div class="card">
-          <img src="https://images.unsplash.com/photo-1599946347371-68eb71b16afc?auto=format&fit=crop&w=800&q=80" class="img-banner" alt="Potsdam Palace">
-          <div class="explore-content">
-            <h4>Day Trip to Potsdam Palaces</h4>
-            <p>A 30-minute S-Bahn ride from the center brings you to Sanssouci, Frederick the Great's UNESCO-listed Baroque palace. The terraced vineyard gardens and rococo teahouse feel worlds away from urban Berlin.</p>
-            <a href="https://www.google.com/maps/search/?api=1&query=Sanssouci+Palace+Potsdam" class="map-link" target="_blank">📍 Map to Potsdam</a>
-          </div>
-        </div>
-
-      </div>
+      </details>
 
     </div>
 
